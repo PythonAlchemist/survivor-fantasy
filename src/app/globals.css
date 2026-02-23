@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0a0e17;
+  --accent-gold: #F5C518;
+  --accent-orange: #E8590C;
+  --accent-blue: #1E5B8A;
+  --accent-green: #2D6B3F;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(245, 197, 24, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 100%, rgba(30, 91, 138, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(45, 107, 63, 0.03) 0%, transparent 60%),
+    var(--bg-primary);
+}

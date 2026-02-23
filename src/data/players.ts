@@ -1,0 +1,178 @@
+export interface Player {
+  id: string;
+  name: string;
+  imageUrl: string;
+  seasons: string[];
+  notableStats: string;
+}
+
+export const players: Record<string, Player> = {
+  ozzy: {
+    id: "ozzy",
+    name: "Ozzy Lusth",
+    imageUrl: "/images/cast/ozzy.jpg",
+    seasons: ["Cook Islands", "Micronesia", "South Pacific", "Game Changers"],
+    notableStats: "4x player. Challenge beast. Runner-up S13.",
+  },
+  savannah: {
+    id: "savannah",
+    name: "Savannah Louie",
+    imageUrl: "/images/cast/savannah.jpg",
+    seasons: ["47"],
+    notableStats: "New era player from Season 47.",
+  },
+  aubry: {
+    id: "aubry",
+    name: "Aubry Bracco",
+    imageUrl: "/images/cast/aubry.jpg",
+    seasons: ["Kaoh Rong", "Game Changers", "Edge of Extinction"],
+    notableStats: "3x player. Runner-up S32. Strategic powerhouse.",
+  },
+  emily: {
+    id: "emily",
+    name: "Emily Flippen",
+    imageUrl: "/images/cast/emily.jpg",
+    seasons: ["45"],
+    notableStats: "Breakout star of S45. Underdog arc.",
+  },
+  kyle: {
+    id: "kyle",
+    name: "Kyle Fraser",
+    imageUrl: "/images/cast/kyle.jpg",
+    seasons: ["48"],
+    notableStats: "New era competitor from Season 48.",
+  },
+  stephenie: {
+    id: "stephenie",
+    name: "Stephenie LaGrossa",
+    imageUrl: "/images/cast/stephenie.jpg",
+    seasons: ["Palau", "Guatemala", "Heroes vs. Villains"],
+    notableStats: "3x player. Last Ulong standing. Runner-up S11.",
+  },
+  jonathan: {
+    id: "jonathan",
+    name: "Jonathan Young",
+    imageUrl: "/images/cast/jonathan.jpg",
+    seasons: ["42"],
+    notableStats: "Challenge dominator. Physical threat from S42.",
+  },
+  colby: {
+    id: "colby",
+    name: "Colby Donaldson",
+    imageUrl: "/images/cast/colby.jpg",
+    seasons: ["The Australian Outback", "All-Stars", "Heroes vs. Villains"],
+    notableStats: "3x player. Runner-up S2. Original golden boy.",
+  },
+  rick: {
+    id: "rick",
+    name: "Rick Devens",
+    imageUrl: "/images/cast/rick.jpg",
+    seasons: ["Edge of Extinction"],
+    notableStats: "Firemaking loser. Returned from Edge. Fan favorite.",
+  },
+  chrissy: {
+    id: "chrissy",
+    name: "Chrissy Hofbeck",
+    imageUrl: "/images/cast/chrissy.jpg",
+    seasons: ["Heroes vs. Healers vs. Hustlers"],
+    notableStats: "Runner-up S35. 4 individual immunity wins.",
+  },
+  charlie: {
+    id: "charlie",
+    name: "Charlie Davis",
+    imageUrl: "/images/cast/charlie.jpg",
+    seasons: ["45"],
+    notableStats: "Winner of S45. Strategic and social game.",
+  },
+  angelina: {
+    id: "angelina",
+    name: "Angelina Keeley",
+    imageUrl: "/images/cast/angelina.jpg",
+    seasons: ["David vs. Goliath"],
+    notableStats: "Finalist S37. Negotiated for rice. Iconic.",
+  },
+  jenna: {
+    id: "jenna",
+    name: "Jenna Lewis-Dougherty",
+    imageUrl: "/images/cast/jenna.jpg",
+    seasons: ["Borneo", "All-Stars"],
+    notableStats: "2x player. OG Season 1 cast member.",
+  },
+  joe: {
+    id: "joe",
+    name: "Joe Hunter",
+    imageUrl: "/images/cast/joe.jpg",
+    seasons: ["47"],
+    notableStats: "Memorable player from Season 47.",
+  },
+  rizo: {
+    id: "rizo",
+    name: "Rizo Velovic",
+    imageUrl: "/images/cast/rizo.jpg",
+    seasons: ["49"],
+    notableStats: "Fresh off Season 49.",
+  },
+  mike: {
+    id: "mike",
+    name: "Mike White",
+    imageUrl: "/images/cast/mike.jpg",
+    seasons: ["David vs. Goliath"],
+    notableStats: "Runner-up S37. Hollywood writer/director.",
+  },
+  coach: {
+    id: "coach",
+    name: "Coach Wade",
+    imageUrl: "/images/cast/coach.jpg",
+    seasons: ["Tocantins", "Heroes vs. Villains", "South Pacific"],
+    notableStats: "3x player. Dragon Slayer. Runner-up S23.",
+  },
+  q: {
+    id: "q",
+    name: "Q Burdette",
+    imageUrl: "/images/cast/q.jpg",
+    seasons: ["46"],
+    notableStats: "Chaotic and entertaining player from S46.",
+  },
+  genevieve: {
+    id: "genevieve",
+    name: "Genevieve Mushaluk",
+    imageUrl: "/images/cast/genevieve.jpg",
+    seasons: ["47"],
+    notableStats: "Strategic player from Season 47.",
+  },
+  christian: {
+    id: "christian",
+    name: "Christian Hubicki",
+    imageUrl: "/images/cast/christian.jpg",
+    seasons: ["David vs. Goliath"],
+    notableStats: "Fan favorite S37. Robotics scientist. Challenge endurance.",
+  },
+  dee: {
+    id: "dee",
+    name: "Dee Valladares",
+    imageUrl: "/images/cast/dee.jpg",
+    seasons: ["45"],
+    notableStats: "Runner-up S45. Strong strategic and social player.",
+  },
+  cirie: {
+    id: "cirie",
+    name: "Cirie Fields",
+    imageUrl: "/images/cast/cirie.jpg",
+    seasons: ["Panama", "Micronesia", "Heroes vs. Villains", "Game Changers"],
+    notableStats: "4x player. Greatest to never win. 3-2-1 vote.",
+  },
+  kamilla: {
+    id: "kamilla",
+    name: "Kamilla Karthigesu",
+    imageUrl: "/images/cast/kamilla.jpg",
+    seasons: ["47"],
+    notableStats: "Notable player from Season 47.",
+  },
+  tiffany: {
+    id: "tiffany",
+    name: "Tiffany Ervin",
+    imageUrl: "/images/cast/tiffany.jpg",
+    seasons: ["47"],
+    notableStats: "Winner of S47. Dominant gameplay.",
+  },
+};
