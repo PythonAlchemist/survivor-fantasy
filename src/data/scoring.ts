@@ -14,7 +14,8 @@ export type EventType =
   | "find_advantage"
   | "use_advantage_successfully"
   | "voted_out"
-  | "quit_medevac"
+  | "medevac"
+  | "quit"
   | "jury_vote";
 
 export interface ScoringRule {
@@ -45,7 +46,8 @@ export const scoringRules: ScoringRule[] = [
   { type: "use_advantage_successfully", label: "Use Advantage Successfully", points: 3, category: "Idols/Advantages" },
   // Penalties
   { type: "voted_out", label: "Voted Out", points: -3, category: "Penalties" },
-  { type: "quit_medevac", label: "Quit/Medevac", points: -5, category: "Penalties" },
+  { type: "medevac", label: "Medevac", points: 0, category: "Penalties" },
+  { type: "quit", label: "Quit", points: -5, category: "Penalties" },
   // End of Season
   { type: "jury_vote", label: "Jury Vote Received", points: 3, category: "End of Season" },
 ];
