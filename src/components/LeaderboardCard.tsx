@@ -6,9 +6,10 @@ import { players } from "@/data/players";
 interface LeaderboardCardProps {
   team: TeamScore;
   rank: number;
+  eliminatedIds: Set<string>;
 }
 
-export default function LeaderboardCard({ team, rank }: LeaderboardCardProps) {
+export default function LeaderboardCard({ team, rank, eliminatedIds }: LeaderboardCardProps) {
   const isFirst = rank === 1;
 
   return (
@@ -43,24 +44,33 @@ export default function LeaderboardCard({ team, rank }: LeaderboardCardProps) {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
           {team.players.map((player) => {
             const playerData = players[player.playerId];
+            const isEliminated = eliminatedIds.has(player.playerId);
             return (
               <div
                 key={player.playerId}
-                className="bg-white/[0.03] rounded-lg px-3 py-2 flex items-center gap-2"
+                className={`bg-white/[0.03] rounded-lg px-3 py-2 flex items-center gap-2 ${
+                  isEliminated ? "opacity-40" : ""
+                }`}
               >
                 <Image
                   src={playerData?.imageUrl ?? ""}
                   alt={player.name}
                   width={24}
                   height={24}
-                  className="w-6 h-6 rounded-full object-cover flex-shrink-0"
+                  className={`w-6 h-6 rounded-full object-cover flex-shrink-0 ${
+                    isEliminated ? "grayscale" : ""
+                  }`}
                 />
-                <span className="text-[13px] text-gray-400 truncate flex-1">
+                <span className={`text-[13px] truncate flex-1 ${
+                  isEliminated ? "line-through text-gray-600" : "text-gray-400"
+                }`}>
                   {player.name}
                 </span>
                 <span
                   className={`text-[13px] font-semibold tabular-nums flex-shrink-0 ${
-                    player.total > 0
+                    isEliminated
+                      ? "text-gray-600"
+                      : player.total > 0
                       ? "text-emerald-400"
                       : player.total < 0
                       ? "text-red-400"

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getTeamScores } from "@/lib/scoring";
+import { getTeamScores, getEliminatedPlayerIds } from "@/lib/scoring";
 import { episodes } from "@/data/episodes";
 import LeaderboardCard from "@/components/LeaderboardCard";
 
@@ -7,6 +7,7 @@ const PREMIERE_DATE = new Date("2026-02-25T20:00:00-05:00");
 
 export default function Home() {
   const teamScores = getTeamScores();
+  const eliminatedIds = getEliminatedPlayerIds();
   const hasEpisodes = episodes.length > 0;
   const now = new Date();
   const isPrePremiere = now < PREMIERE_DATE && !hasEpisodes;
@@ -51,7 +52,7 @@ export default function Home() {
       {/* Leaderboard */}
       <div className="space-y-3">
         {teamScores.map((team, i) => (
-          <LeaderboardCard key={team.slug} team={team} rank={i + 1} />
+          <LeaderboardCard key={team.slug} team={team} rank={i + 1} eliminatedIds={eliminatedIds} />
         ))}
       </div>
     </div>

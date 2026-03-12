@@ -3,6 +3,7 @@ import { players } from "@/data/players";
 import { teams } from "@/data/teams";
 import { scoringRules, pointValues } from "@/data/scoring";
 import type { EventType } from "@/data/scoring";
+import EpisodeAccordion from "@/components/EpisodeAccordion";
 
 export const metadata = {
   title: "Episodes | Survivor 50 Fantasy",
@@ -18,6 +19,8 @@ function getDrafterForPlayer(playerId: string): string | null {
 }
 
 export default function EpisodesPage() {
+  const reversedEpisodes = [...episodes].reverse();
+
   return (
     <div>
       <div className="mb-10 pt-4">
@@ -32,8 +35,8 @@ export default function EpisodesPage() {
         </p>
       </div>
 
-      <div className="space-y-8">
-        {episodes.map((ep) => {
+      <div className="space-y-4">
+        {reversedEpisodes.map((ep, i) => {
           // Group events by player and calculate per-player totals
           const playerMap: Record<
             string,
@@ -64,36 +67,14 @@ export default function EpisodesPage() {
           );
 
           return (
-            <div
+            <EpisodeAccordion
               key={ep.episode}
-              className="bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden"
+              episodeNumber={ep.episode}
+              title={ep.title}
+              airDate={ep.airDate}
+              totalPoints={episodeTotal}
+              defaultOpen={i === 0}
             >
-              {/* Episode header */}
-              <div className="px-5 py-4 border-b border-white/[0.06]">
-                <div className="flex items-baseline justify-between flex-wrap gap-2">
-                  <div>
-                    <span className="text-[#F5C518] font-bold text-sm tabular-nums">
-                      Episode {ep.episode}
-                    </span>
-                    <h2 className="text-white font-semibold text-lg mt-0.5">
-                      {ep.title}
-                    </h2>
-                  </div>
-                  <div className="text-right">
-                    {ep.airDate && (
-                      <p className="text-gray-500 text-xs">{ep.airDate}</p>
-                    )}
-                    <p className="text-gray-400 text-sm mt-0.5">
-                      Total points:{" "}
-                      <span className="font-bold text-white tabular-nums">
-                        {episodeTotal}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Player breakdown */}
               <div className="divide-y divide-white/[0.04]">
                 {sortedPlayers.map(([playerId, data]) => {
                   const player = players[playerId];
@@ -117,9 +98,9 @@ export default function EpisodesPage() {
                           )}
                         </div>
                         <div className="flex flex-wrap gap-1.5 mt-1.5">
-                          {data.events.map((evt, i) => (
+                          {data.events.map((evt, idx) => (
                             <span
-                              key={i}
+                              key={idx}
                               className={`inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-full border ${
                                 evt.points > 0
                                   ? "text-emerald-400 border-emerald-400/20 bg-emerald-400/5"
@@ -151,7 +132,7 @@ export default function EpisodesPage() {
                   );
                 })}
               </div>
-            </div>
+            </EpisodeAccordion>
           );
         })}
       </div>

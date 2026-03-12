@@ -1,5 +1,7 @@
 export type EventType =
   | "tribal_win"
+  | "tribal_second"
+  | "journey_win"
   | "individual_immunity"
   | "individual_reward"
   | "survive_tribal"
@@ -27,7 +29,9 @@ export interface ScoringRule {
 
 export const scoringRules: ScoringRule[] = [
   // Challenges
-  { type: "tribal_win", label: "Tribal Challenge Win", points: 2, category: "Challenges" },
+  { type: "tribal_win", label: "Tribal Challenge Win (1st)", points: 2, category: "Challenges" },
+  { type: "tribal_second", label: "Tribal Challenge (2nd)", points: 1, category: "Challenges" },
+  { type: "journey_win", label: "Journey Win", points: 1, category: "Challenges" },
   { type: "individual_immunity", label: "Individual Immunity Win", points: 5, category: "Challenges" },
   { type: "individual_reward", label: "Individual Reward Win", points: 2, category: "Challenges" },
   // Survival

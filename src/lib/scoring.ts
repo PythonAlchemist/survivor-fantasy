@@ -73,6 +73,20 @@ export interface PlayerEpisodeScore {
   events: { type: EventType; points: number }[];
 }
 
+const ELIMINATION_EVENTS: EventType[] = ["voted_out", "medevac", "quit"];
+
+export function getEliminatedPlayerIds(): Set<string> {
+  const eliminated = new Set<string>();
+  for (const episode of episodes) {
+    for (const event of episode.events) {
+      if (ELIMINATION_EVENTS.includes(event.type)) {
+        eliminated.add(event.player);
+      }
+    }
+  }
+  return eliminated;
+}
+
 export function getPlayerEpisodeBreakdown(playerId: string): PlayerEpisodeScore[] {
   return episodes
     .filter((ep) => ep.events.some((e) => e.player === playerId))
