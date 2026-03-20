@@ -295,4 +295,79 @@ export const episodes: Episode[] = [
       { player: "angelina", type: "survive_episode" },
     ],
   },
+  {
+    episode: 4,
+    title: "Knife to the Heart",
+    airDate: "2026-03-18",
+    events: [
+      // --- Tribes (post-swap, same as Ep 3) ---
+      // Cila: Charlie, Dee, Rizo, Kamilla, Jonathan, Cirie, Rick
+      // Kalo: Aubry, Joe, Genevieve, Coach, Chrissy, Colby, Tiffany
+      // Vatu: Christian, Emily, Ozzy, Stephenie, Angelina (Q voted out Ep 3)
+
+      // --- Combined Reward/Immunity Challenge (Kalo 1st, Cila 2nd, Vatu 3rd) ---
+      // Kalo tribe (1st — won reward with Zac Brown + immunity)
+      { player: "aubry", type: "tribal_win" },
+      { player: "joe", type: "tribal_win" },
+      { player: "genevieve", type: "tribal_win" },
+      { player: "coach", type: "tribal_win" },
+      { player: "chrissy", type: "tribal_win" },
+      { player: "colby", type: "tribal_win" },
+      { player: "tiffany", type: "tribal_win" },
+      // Cila tribe (2nd — immunity only)
+      { player: "charlie", type: "tribal_second" },
+      { player: "dee", type: "tribal_second" },
+      { player: "rizo", type: "tribal_second" },
+      { player: "kamilla", type: "tribal_second" },
+      { player: "jonathan", type: "tribal_second" },
+      { player: "cirie", type: "tribal_second" },
+      { player: "rick", type: "tribal_second" },
+
+      // --- Survive Tribal Council (Vatu minus Mike) ---
+      { player: "christian", type: "survive_tribal" },
+      { player: "emily", type: "survive_tribal" },
+      { player: "ozzy", type: "survive_tribal" },
+      { player: "stephenie", type: "survive_tribal" },
+      { player: "angelina", type: "survive_tribal" },
+
+      // --- Correct Vote (3 voted for Mike: Christian, Emily, Stephenie) ---
+      { player: "christian", type: "correct_vote" },
+      { player: "emily", type: "correct_vote" },
+      { player: "stephenie", type: "correct_vote" },
+
+      // --- Zero Votes Received at Tribal (Vatu minus Mike, Emily, Angelina) ---
+      // Mike got 3 votes, Emily got 2 votes, Angelina got 1 vote
+      { player: "christian", type: "zero_votes_received" },
+      { player: "ozzy", type: "zero_votes_received" },
+      { player: "stephenie", type: "zero_votes_received" },
+
+      // --- Idols & Advantages ---
+      // Genevieve found Billie Eilish Boomerang Idol, sent to Rizo
+      { player: "genevieve", type: "find_idol" },
+
+      // --- Voted Out ---
+      { player: "mike", type: "voted_out" },
+
+      // --- Survive Episode (all 19 remaining players) ---
+      { player: "charlie", type: "survive_episode" },
+      { player: "dee", type: "survive_episode" },
+      { player: "rizo", type: "survive_episode" },
+      { player: "kamilla", type: "survive_episode" },
+      { player: "jonathan", type: "survive_episode" },
+      { player: "cirie", type: "survive_episode" },
+      { player: "rick", type: "survive_episode" },
+      { player: "aubry", type: "survive_episode" },
+      { player: "joe", type: "survive_episode" },
+      { player: "genevieve", type: "survive_episode" },
+      { player: "coach", type: "survive_episode" },
+      { player: "chrissy", type: "survive_episode" },
+      { player: "colby", type: "survive_episode" },
+      { player: "tiffany", type: "survive_episode" },
+      { player: "christian", type: "survive_episode" },
+      { player: "emily", type: "survive_episode" },
+      { player: "ozzy", type: "survive_episode" },
+      { player: "stephenie", type: "survive_episode" },
+      { player: "angelina", type: "survive_episode" },
+    ],
+  },
 ];
