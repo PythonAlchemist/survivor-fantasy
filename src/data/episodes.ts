@@ -370,4 +370,88 @@ export const episodes: Episode[] = [
       { player: "angelina", type: "survive_episode" },
     ],
   },
+  {
+    episode: 5,
+    title: "Open Wounds",
+    airDate: "2026-03-25",
+    events: [
+      // --- Double Elimination Episode ---
+      // Tribes (same as Ep 3/4 post-swap):
+      // Cila: Charlie, Dee, Rizo, Kamilla, Jonathan, Cirie, Rick
+      // Kalo: Aubry, Joe, Genevieve, Coach, Chrissy, Colby, Tiffany
+      // Vatu: Christian, Emily, Ozzy, Stephenie, Angelina
+
+      // --- Immunity Challenge (Kalo wins; Vatu & Cila both go to tribal) ---
+      { player: "aubry", type: "tribal_win" },
+      { player: "joe", type: "tribal_win" },
+      { player: "genevieve", type: "tribal_win" },
+      { player: "coach", type: "tribal_win" },
+      { player: "chrissy", type: "tribal_win" },
+      { player: "colby", type: "tribal_win" },
+      { player: "tiffany", type: "tribal_win" },
+
+      // --- Vatu Tribal Council (Angelina voted out 4-1) ---
+      // Voted for Angelina: Ozzy, Christian, Emily, Stephenie
+      // Angelina voted for Stephenie
+      { player: "ozzy", type: "survive_tribal" },
+      { player: "christian", type: "survive_tribal" },
+      { player: "emily", type: "survive_tribal" },
+      { player: "stephenie", type: "survive_tribal" },
+
+      { player: "ozzy", type: "correct_vote" },
+      { player: "christian", type: "correct_vote" },
+      { player: "emily", type: "correct_vote" },
+      { player: "stephenie", type: "correct_vote" },
+
+      // Zero votes received (Stephenie got 1 from Angelina)
+      { player: "ozzy", type: "zero_votes_received" },
+      { player: "christian", type: "zero_votes_received" },
+      { player: "emily", type: "zero_votes_received" },
+
+      // --- Cila Tribal Council (Charlie voted out 4-3) ---
+      // Voted for Charlie: Cirie, Dee, Kamilla, Rizo
+      // Voted for Rizo: Jonathan, Rick, Charlie
+      { player: "jonathan", type: "survive_tribal" },
+      { player: "dee", type: "survive_tribal" },
+      { player: "rizo", type: "survive_tribal" },
+      { player: "kamilla", type: "survive_tribal" },
+      { player: "cirie", type: "survive_tribal" },
+      { player: "rick", type: "survive_tribal" },
+
+      { player: "cirie", type: "correct_vote" },
+      { player: "dee", type: "correct_vote" },
+      { player: "kamilla", type: "correct_vote" },
+      { player: "rizo", type: "correct_vote" },
+
+      // Zero votes received (Rizo got 3, Charlie got 4)
+      { player: "cirie", type: "zero_votes_received" },
+      { player: "dee", type: "zero_votes_received" },
+      { player: "kamilla", type: "zero_votes_received" },
+      { player: "jonathan", type: "zero_votes_received" },
+      { player: "rick", type: "zero_votes_received" },
+
+      // --- Voted Out ---
+      { player: "angelina", type: "voted_out" },
+      { player: "charlie", type: "voted_out" },
+
+      // --- Survive Episode (17 remaining players) ---
+      { player: "ozzy", type: "survive_episode" },
+      { player: "christian", type: "survive_episode" },
+      { player: "emily", type: "survive_episode" },
+      { player: "stephenie", type: "survive_episode" },
+      { player: "jonathan", type: "survive_episode" },
+      { player: "dee", type: "survive_episode" },
+      { player: "rizo", type: "survive_episode" },
+      { player: "kamilla", type: "survive_episode" },
+      { player: "cirie", type: "survive_episode" },
+      { player: "rick", type: "survive_episode" },
+      { player: "aubry", type: "survive_episode" },
+      { player: "joe", type: "survive_episode" },
+      { player: "genevieve", type: "survive_episode" },
+      { player: "coach", type: "survive_episode" },
+      { player: "chrissy", type: "survive_episode" },
+      { player: "colby", type: "survive_episode" },
+      { player: "tiffany", type: "survive_episode" },
+    ],
+  },
 ];
