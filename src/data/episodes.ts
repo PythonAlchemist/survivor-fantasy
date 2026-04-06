@@ -454,4 +454,118 @@ export const episodes: Episode[] = [
       { player: "tiffany", type: "survive_episode" },
     ],
   },
+  {
+    episode: 6,
+    title: "The Blood Moon",
+    airDate: "2026-04-01",
+    events: [
+      // --- Merge (all 17 remaining players) ---
+      { player: "ozzy", type: "make_merge" },
+      { player: "christian", type: "make_merge" },
+      { player: "emily", type: "make_merge" },
+      { player: "stephenie", type: "make_merge" },
+      { player: "jonathan", type: "make_merge" },
+      { player: "dee", type: "make_merge" },
+      { player: "rizo", type: "make_merge" },
+      { player: "kamilla", type: "make_merge" },
+      { player: "cirie", type: "make_merge" },
+      { player: "rick", type: "make_merge" },
+      { player: "aubry", type: "make_merge" },
+      { player: "joe", type: "make_merge" },
+      { player: "genevieve", type: "make_merge" },
+      { player: "coach", type: "make_merge" },
+      { player: "chrissy", type: "make_merge" },
+      { player: "colby", type: "make_merge" },
+      { player: "tiffany", type: "make_merge" },
+
+      // --- Ozzy & Rizo sent to Exile Island (safe from tribal) ---
+      // Ozzy found advantage to go to exile
+      { player: "ozzy", type: "find_advantage" },
+
+      // --- Blood Moon: Individual Immunity Challenge (3 groups) ---
+      // Stephenie wins immunity (Orange), Christian wins (Purple), Dee wins (Teal)
+      { player: "stephenie", type: "individual_immunity" },
+      { player: "christian", type: "individual_immunity" },
+      { player: "dee", type: "individual_immunity" },
+
+      // --- Orange Tribal Council (Kamilla voted out 3-2) ---
+      // Group: Stephenie (immune), Chrissy, Jonathan, Kamilla, Tiffany
+      // Voted for Kamilla: Jonathan, Chrissy, Stephenie
+      // Voted for Chrissy: Kamilla, Tiffany
+      { player: "stephenie", type: "survive_tribal" },
+      { player: "chrissy", type: "survive_tribal" },
+      { player: "jonathan", type: "survive_tribal" },
+      { player: "tiffany", type: "survive_tribal" },
+
+      { player: "jonathan", type: "correct_vote" },
+      { player: "chrissy", type: "correct_vote" },
+      { player: "stephenie", type: "correct_vote" },
+
+      // Zero votes received (Chrissy got 2, Kamilla got 3)
+      { player: "stephenie", type: "zero_votes_received" },
+      { player: "jonathan", type: "zero_votes_received" },
+      { player: "tiffany", type: "zero_votes_received" },
+
+      // --- Purple Tribal Council (Genevieve voted out 4-0) ---
+      // Group: Christian (immune), Aubry, Rick, Genevieve, Joe
+      // Genevieve played Shot in the Dark (not safe, didn't cast a vote)
+      // Voted for Genevieve: Aubry, Christian, Rick, Joe
+      { player: "aubry", type: "survive_tribal" },
+      { player: "christian", type: "survive_tribal" },
+      { player: "rick", type: "survive_tribal" },
+      { player: "joe", type: "survive_tribal" },
+
+      { player: "aubry", type: "correct_vote" },
+      { player: "christian", type: "correct_vote" },
+      { player: "rick", type: "correct_vote" },
+      { player: "joe", type: "correct_vote" },
+
+      // Zero votes received (all 4 survivors)
+      { player: "aubry", type: "zero_votes_received" },
+      { player: "christian", type: "zero_votes_received" },
+      { player: "rick", type: "zero_votes_received" },
+      { player: "joe", type: "zero_votes_received" },
+
+      // --- Teal Tribal Council (Colby voted out 4-0) ---
+      // Group: Dee (immune), Emily, Cirie, Coach, Colby
+      // Colby had no vote and no Shot in the Dark
+      // Voted for Colby: Dee, Emily, Cirie, Coach
+      { player: "dee", type: "survive_tribal" },
+      { player: "emily", type: "survive_tribal" },
+      { player: "cirie", type: "survive_tribal" },
+      { player: "coach", type: "survive_tribal" },
+
+      { player: "dee", type: "correct_vote" },
+      { player: "emily", type: "correct_vote" },
+      { player: "cirie", type: "correct_vote" },
+      { player: "coach", type: "correct_vote" },
+
+      // Zero votes received (all 4 survivors)
+      { player: "dee", type: "zero_votes_received" },
+      { player: "emily", type: "zero_votes_received" },
+      { player: "cirie", type: "zero_votes_received" },
+      { player: "coach", type: "zero_votes_received" },
+
+      // --- Voted Out ---
+      { player: "kamilla", type: "voted_out" },
+      { player: "genevieve", type: "voted_out" },
+      { player: "colby", type: "voted_out" },
+
+      // --- Survive Episode (14 remaining players) ---
+      { player: "ozzy", type: "survive_episode" },
+      { player: "rizo", type: "survive_episode" },
+      { player: "stephenie", type: "survive_episode" },
+      { player: "chrissy", type: "survive_episode" },
+      { player: "jonathan", type: "survive_episode" },
+      { player: "tiffany", type: "survive_episode" },
+      { player: "aubry", type: "survive_episode" },
+      { player: "christian", type: "survive_episode" },
+      { player: "rick", type: "survive_episode" },
+      { player: "joe", type: "survive_episode" },
+      { player: "dee", type: "survive_episode" },
+      { player: "emily", type: "survive_episode" },
+      { player: "cirie", type: "survive_episode" },
+      { player: "coach", type: "survive_episode" },
+    ],
+  },
 ];
