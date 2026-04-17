@@ -661,4 +661,85 @@ export const episodes: Episode[] = [
       { player: "coach", type: "survive_episode" },
     ],
   },
+  {
+    episode: 8,
+    title: "Double the Fun, Double the Demise",
+    airDate: "2026-04-15",
+    events: [
+      // --- Post-merge, 13 players remaining ---
+      // Double Duo twist: pairs compete/vote together, pair eliminated
+      // Pairs: Jonathan/Christian, Coach/Chrissy, Joe/Tiffany,
+      //        Rizo/Emily, Ozzy/Stephenie, Aubry/Rick
+      // Cirie sent to Exile Island (unpaired, safe)
+
+      // --- Combined Reward/Immunity Challenge ---
+      // Joe & Tiffany win (spaghetti dinner + immunity)
+      // Top 3: Joe/Tiffany, Ozzy/Stephenie, Aubry/Rick
+      { player: "joe", type: "individual_immunity" },
+      { player: "tiffany", type: "individual_immunity" },
+
+      // --- Exile Island: Cirie finds marked coconut (safety + vote) ---
+      { player: "cirie", type: "find_advantage" },
+
+      // --- Tribal Council (10-1-1: Coach & Chrissy voted out as a pair) ---
+      // Coach played Shot in the Dark (not safe — no vote cast)
+      // Rick showed fake idol (did not play it)
+      // Voted Coach/Chrissy (10): Ozzy, Rizo, Stephenie, Tiffany, Aubry,
+      //   Christian, Rick, Joe, Emily, Cirie
+      // Voted Aubry/Rick (1): Jonathan
+      // Voted Rizo/Emily (1): Chrissy
+
+      // --- Survive Tribal Council (everyone except Coach & Chrissy) ---
+      { player: "ozzy", type: "survive_tribal" },
+      { player: "rizo", type: "survive_tribal" },
+      { player: "stephenie", type: "survive_tribal" },
+      { player: "jonathan", type: "survive_tribal" },
+      { player: "tiffany", type: "survive_tribal" },
+      { player: "aubry", type: "survive_tribal" },
+      { player: "christian", type: "survive_tribal" },
+      { player: "rick", type: "survive_tribal" },
+      { player: "joe", type: "survive_tribal" },
+      { player: "emily", type: "survive_tribal" },
+      { player: "cirie", type: "survive_tribal" },
+
+      // --- Correct Vote (10 voted for Coach/Chrissy) ---
+      { player: "ozzy", type: "correct_vote" },
+      { player: "rizo", type: "correct_vote" },
+      { player: "stephenie", type: "correct_vote" },
+      { player: "tiffany", type: "correct_vote" },
+      { player: "aubry", type: "correct_vote" },
+      { player: "christian", type: "correct_vote" },
+      { player: "rick", type: "correct_vote" },
+      { player: "joe", type: "correct_vote" },
+      { player: "emily", type: "correct_vote" },
+      { player: "cirie", type: "correct_vote" },
+
+      // --- Zero Votes Received (pairs not voted for + Cirie safe on exile) ---
+      // Pairs voted for: Coach/Chrissy (10), Aubry/Rick (1), Rizo/Emily (1)
+      { player: "ozzy", type: "zero_votes_received" },
+      { player: "stephenie", type: "zero_votes_received" },
+      { player: "jonathan", type: "zero_votes_received" },
+      { player: "christian", type: "zero_votes_received" },
+      { player: "joe", type: "zero_votes_received" },
+      { player: "tiffany", type: "zero_votes_received" },
+      { player: "cirie", type: "zero_votes_received" },
+
+      // --- Voted Out ---
+      { player: "coach", type: "voted_out" },
+      { player: "chrissy", type: "voted_out" },
+
+      // --- Survive Episode (11 remaining players) ---
+      { player: "ozzy", type: "survive_episode" },
+      { player: "rizo", type: "survive_episode" },
+      { player: "stephenie", type: "survive_episode" },
+      { player: "jonathan", type: "survive_episode" },
+      { player: "tiffany", type: "survive_episode" },
+      { player: "aubry", type: "survive_episode" },
+      { player: "christian", type: "survive_episode" },
+      { player: "rick", type: "survive_episode" },
+      { player: "joe", type: "survive_episode" },
+      { player: "emily", type: "survive_episode" },
+      { player: "cirie", type: "survive_episode" },
+    ],
+  },
 ];
