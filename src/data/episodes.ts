@@ -779,12 +779,13 @@ export const episodes: Episode[] = [
       { player: "emily", type: "survive_tribal" },
       { player: "cirie", type: "survive_tribal" },
 
-      // --- Correct Vote (5 voted for Christian, excluding forced self-vote) ---
+      // --- Correct Vote (5 voted for Christian + Christian's forced self-vote) ---
       { player: "jonathan", type: "correct_vote" },
       { player: "aubry", type: "correct_vote" },
       { player: "cirie", type: "correct_vote" },
       { player: "joe", type: "correct_vote" },
       { player: "tiffany", type: "correct_vote" },
+      { player: "christian", type: "correct_vote" },
 
       // --- Zero Votes Received (everyone except Christian, Rick, Ozzy) ---
       { player: "rizo", type: "zero_votes_received" },
