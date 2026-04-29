@@ -742,4 +742,74 @@ export const episodes: Episode[] = [
       { player: "cirie", type: "survive_episode" },
     ],
   },
+  {
+    episode: 9,
+    title: "I Deserve All of This",
+    airDate: "2026-04-22",
+    events: [
+      // --- Post-merge, 11 players remaining ---
+      // Ozzy, Rizo, Stephenie, Jonathan, Tiffany, Aubry,
+      // Christian, Rick, Joe, Emily, Cirie
+
+      // --- Immunity Challenge "Wrist Assured" ---
+      // Joe wins (also won this challenge on S48)
+      // Jeff Probst competed; Jonathan, Joe, Ozzy, Tiffany outlasted Jeff → won rice
+      { player: "joe", type: "individual_immunity" },
+
+      // --- Journey: Christian fails Jimmy Fallon puzzle ---
+      // Forced to cast a vote against himself at tribal (first ever in US Survivor)
+      // Christian also gave his Shot in the Dark to Jonathan pre-tribal
+
+      // --- Tribal Council (6-3-2: Christian voted out, 4th jury member) ---
+      // Christian's forced self-vote counts as 1 of the 6
+      // No idols or advantages played
+      // Voted Christian (5 + self-vote = 6): Jonathan, Aubry, Cirie, Joe, Tiffany + Christian
+      // Voted Rick (3): Ozzy, Rizo, Stephenie
+      // Voted Ozzy (2): Emily, Rick
+
+      // --- Survive Tribal Council (everyone except Christian) ---
+      { player: "ozzy", type: "survive_tribal" },
+      { player: "rizo", type: "survive_tribal" },
+      { player: "stephenie", type: "survive_tribal" },
+      { player: "jonathan", type: "survive_tribal" },
+      { player: "tiffany", type: "survive_tribal" },
+      { player: "aubry", type: "survive_tribal" },
+      { player: "rick", type: "survive_tribal" },
+      { player: "joe", type: "survive_tribal" },
+      { player: "emily", type: "survive_tribal" },
+      { player: "cirie", type: "survive_tribal" },
+
+      // --- Correct Vote (5 voted for Christian, excluding forced self-vote) ---
+      { player: "jonathan", type: "correct_vote" },
+      { player: "aubry", type: "correct_vote" },
+      { player: "cirie", type: "correct_vote" },
+      { player: "joe", type: "correct_vote" },
+      { player: "tiffany", type: "correct_vote" },
+
+      // --- Zero Votes Received (everyone except Christian, Rick, Ozzy) ---
+      { player: "rizo", type: "zero_votes_received" },
+      { player: "stephenie", type: "zero_votes_received" },
+      { player: "jonathan", type: "zero_votes_received" },
+      { player: "tiffany", type: "zero_votes_received" },
+      { player: "aubry", type: "zero_votes_received" },
+      { player: "joe", type: "zero_votes_received" },
+      { player: "emily", type: "zero_votes_received" },
+      { player: "cirie", type: "zero_votes_received" },
+
+      // --- Voted Out ---
+      { player: "christian", type: "voted_out" },
+
+      // --- Survive Episode (10 remaining players) ---
+      { player: "ozzy", type: "survive_episode" },
+      { player: "rizo", type: "survive_episode" },
+      { player: "stephenie", type: "survive_episode" },
+      { player: "jonathan", type: "survive_episode" },
+      { player: "tiffany", type: "survive_episode" },
+      { player: "aubry", type: "survive_episode" },
+      { player: "rick", type: "survive_episode" },
+      { player: "joe", type: "survive_episode" },
+      { player: "emily", type: "survive_episode" },
+      { player: "cirie", type: "survive_episode" },
+    ],
+  },
 ];
