@@ -813,4 +813,77 @@ export const episodes: Episode[] = [
       { player: "cirie", type: "survive_episode" },
     ],
   },
+  {
+    episode: 10,
+    title: "A Side Dish of Chaos",
+    airDate: "2026-04-29",
+    events: [
+      // --- Post-merge, 10 players remaining ---
+      // Ozzy, Rizo, Stephenie, Jonathan, Tiffany, Aubry, Rick, Joe, Emily, Cirie
+
+      // --- Survivor Auction (no reward challenge) ---
+
+      // --- Individual Immunity Challenge ---
+      // Tiffany wins (beat Ozzy in final matchup)
+      { player: "tiffany", type: "individual_immunity" },
+
+      // --- MrBeast Super Beware Advantage ---
+      // Rick flips coin correctly → immunity for the night + idol + prize doubled to $2M
+      { player: "rick", type: "find_advantage" },
+      { player: "rick", type: "find_idol" },
+
+      // --- Tribal Council (8-2: Stephenie voted out, 5th jury member) ---
+      // Stephenie used steal-a-vote on Rick (Rick couldn't vote)
+      // Stephenie voted Aubry twice with her 2 votes
+      { player: "stephenie", type: "use_advantage_successfully" },
+      // Everyone else voted Stephenie
+      // Voted Stephenie (8): Ozzy, Rizo, Jonathan, Tiffany, Aubry, Joe, Emily, Cirie
+      // Voted Aubry (2): Stephenie (×2, steal-a-vote)
+
+      // --- Survive Tribal Council (everyone except Stephenie) ---
+      { player: "ozzy", type: "survive_tribal" },
+      { player: "rizo", type: "survive_tribal" },
+      { player: "jonathan", type: "survive_tribal" },
+      { player: "tiffany", type: "survive_tribal" },
+      { player: "aubry", type: "survive_tribal" },
+      { player: "rick", type: "survive_tribal" },
+      { player: "joe", type: "survive_tribal" },
+      { player: "emily", type: "survive_tribal" },
+      { player: "cirie", type: "survive_tribal" },
+
+      // --- Correct Vote (8 voted for Stephenie) ---
+      { player: "ozzy", type: "correct_vote" },
+      { player: "rizo", type: "correct_vote" },
+      { player: "jonathan", type: "correct_vote" },
+      { player: "tiffany", type: "correct_vote" },
+      { player: "aubry", type: "correct_vote" },
+      { player: "joe", type: "correct_vote" },
+      { player: "emily", type: "correct_vote" },
+      { player: "cirie", type: "correct_vote" },
+
+      // --- Zero Votes Received (everyone except Stephenie and Aubry) ---
+      { player: "ozzy", type: "zero_votes_received" },
+      { player: "rizo", type: "zero_votes_received" },
+      { player: "jonathan", type: "zero_votes_received" },
+      { player: "tiffany", type: "zero_votes_received" },
+      { player: "rick", type: "zero_votes_received" },
+      { player: "joe", type: "zero_votes_received" },
+      { player: "emily", type: "zero_votes_received" },
+      { player: "cirie", type: "zero_votes_received" },
+
+      // --- Voted Out ---
+      { player: "stephenie", type: "voted_out" },
+
+      // --- Survive Episode (9 remaining players) ---
+      { player: "ozzy", type: "survive_episode" },
+      { player: "rizo", type: "survive_episode" },
+      { player: "jonathan", type: "survive_episode" },
+      { player: "tiffany", type: "survive_episode" },
+      { player: "aubry", type: "survive_episode" },
+      { player: "rick", type: "survive_episode" },
+      { player: "joe", type: "survive_episode" },
+      { player: "emily", type: "survive_episode" },
+      { player: "cirie", type: "survive_episode" },
+    ],
+  },
 ];
