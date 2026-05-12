@@ -886,4 +886,78 @@ export const episodes: Episode[] = [
       { player: "cirie", type: "survive_episode" },
     ],
   },
+  {
+    episode: 11,
+    title: "Everyone Will Be Shooketh",
+    airDate: "2026-05-06",
+    events: [
+      // --- Post-merge, 9 players remaining (double elimination) ---
+      // Jonathan wins immunity (Tiffany's win revoked after review)
+      // Jonathan attends both tribals and votes at each
+
+      // --- Individual Immunity Challenge "Bermuda Triangles" ---
+      { player: "jonathan", type: "individual_immunity" },
+
+      // === FIRST TRIBAL COUNCIL ===
+      // Group 1: Tiffany, Emily, Cirie, Rick + Jonathan
+      // Rick plays idol on himself (negates 2 votes) → play_idol_correctly
+      // Cirie uses extra vote → use_advantage_successfully
+      // Initial: 2-2 tie (Emily vs Cirie), Rick votes negated
+      // Revote: Emily eliminated (Jonathan, Tiffany, Rick vote Emily)
+      { player: "rick", type: "play_idol_correctly" },
+      { player: "cirie", type: "use_advantage_successfully" },
+
+      // Survive Tribal 1 (everyone except Emily)
+      { player: "tiffany", type: "survive_tribal" },
+      { player: "cirie", type: "survive_tribal" },
+      { player: "rick", type: "survive_tribal" },
+
+      // Correct Vote Tribal 1 (voted Emily at initial or revote)
+      { player: "cirie", type: "correct_vote" },
+      { player: "jonathan", type: "correct_vote" },
+      { player: "tiffany", type: "correct_vote" },
+      { player: "rick", type: "correct_vote" },
+
+      // Zero Votes Received Tribal 1 (Emily got votes, Cirie got votes, Rick negated)
+      { player: "tiffany", type: "zero_votes_received" },
+      { player: "jonathan", type: "zero_votes_received" },
+
+      // Voted Out
+      { player: "emily", type: "voted_out" },
+
+      // === SECOND TRIBAL COUNCIL ===
+      // Group 2: Joe, Ozzy, Rizo, Aubry + Jonathan
+      // Ozzy voted out 4-1 (idol in pocket, did not play it)
+      // Ozzy voted for Aubry
+      // Voted Ozzy (4): Joe, Rizo, Aubry, Jonathan
+
+      // Survive Tribal 2 (everyone except Ozzy)
+      { player: "joe", type: "survive_tribal" },
+      { player: "rizo", type: "survive_tribal" },
+      { player: "aubry", type: "survive_tribal" },
+      // Jonathan already got survive_tribal from Tribal 1
+
+      // Correct Vote Tribal 2 (voted Ozzy)
+      { player: "joe", type: "correct_vote" },
+      { player: "rizo", type: "correct_vote" },
+      { player: "aubry", type: "correct_vote" },
+      // Jonathan already got correct_vote from Tribal 1
+
+      // Zero Votes Received Tribal 2 (Ozzy got 4, Aubry got 1 from Ozzy)
+      { player: "joe", type: "zero_votes_received" },
+      { player: "rizo", type: "zero_votes_received" },
+
+      // Voted Out
+      { player: "ozzy", type: "voted_out" },
+
+      // --- Survive Episode (7 remaining players) ---
+      { player: "rizo", type: "survive_episode" },
+      { player: "jonathan", type: "survive_episode" },
+      { player: "tiffany", type: "survive_episode" },
+      { player: "aubry", type: "survive_episode" },
+      { player: "rick", type: "survive_episode" },
+      { player: "joe", type: "survive_episode" },
+      { player: "cirie", type: "survive_episode" },
+    ],
+  },
 ];
