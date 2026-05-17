@@ -960,4 +960,90 @@ export const episodes: Episode[] = [
       { player: "cirie", type: "survive_episode" },
     ],
   },
+  {
+    episode: 12,
+    title: "Inconceivable",
+    airDate: "2026-05-13",
+    events: [
+      // --- Post-merge, 7 players remaining (double elimination) ---
+      // Rizo, Jonathan, Tiffany, Aubry, Rick, Joe, Cirie
+
+      // === FIRST TRIBAL COUNCIL ===
+
+      // --- Immunity Challenge 1 + Reward ---
+      // Joe wins immunity + BBQ feast (shared with Cirie and Rizo)
+      { player: "joe", type: "individual_immunity" },
+
+      // --- Tribal Council 1 (6-0: Rick unanimously voted out) ---
+      // Rick played Shot in the Dark (not safe — no vote cast)
+      // All 6 others voted Rick
+
+      // Survive Tribal 1
+      { player: "rizo", type: "survive_tribal" },
+      { player: "jonathan", type: "survive_tribal" },
+      { player: "tiffany", type: "survive_tribal" },
+      { player: "aubry", type: "survive_tribal" },
+      { player: "joe", type: "survive_tribal" },
+      { player: "cirie", type: "survive_tribal" },
+
+      // Correct Vote Tribal 1 (all 6 voted Rick)
+      { player: "rizo", type: "correct_vote" },
+      { player: "jonathan", type: "correct_vote" },
+      { player: "tiffany", type: "correct_vote" },
+      { player: "aubry", type: "correct_vote" },
+      { player: "joe", type: "correct_vote" },
+      { player: "cirie", type: "correct_vote" },
+
+      // Zero Votes Received Tribal 1 (everyone except Rick)
+      { player: "rizo", type: "zero_votes_received" },
+      { player: "jonathan", type: "zero_votes_received" },
+      { player: "tiffany", type: "zero_votes_received" },
+      { player: "aubry", type: "zero_votes_received" },
+      { player: "joe", type: "zero_votes_received" },
+      { player: "cirie", type: "zero_votes_received" },
+
+      // Voted Out
+      { player: "rick", type: "voted_out" },
+
+      // === SECOND TRIBAL COUNCIL ===
+
+      // --- Immunity Challenge 2 ---
+      // Tiffany wins (3rd individual immunity this season)
+      { player: "tiffany", type: "individual_immunity" },
+
+      // --- Tribal Council 2 (4-2: Cirie voted out) ---
+      // Rizo kept his idol (did not play)
+      // Voted Cirie (4): Jonathan, Rizo, Joe, Aubry
+      // Voted Aubry (2): Cirie, Tiffany
+
+      // Survive Tribal 2
+      { player: "rizo", type: "survive_tribal" },
+      { player: "jonathan", type: "survive_tribal" },
+      { player: "tiffany", type: "survive_tribal" },
+      { player: "aubry", type: "survive_tribal" },
+      { player: "joe", type: "survive_tribal" },
+
+      // Correct Vote Tribal 2 (voted Cirie)
+      { player: "jonathan", type: "correct_vote" },
+      { player: "rizo", type: "correct_vote" },
+      { player: "joe", type: "correct_vote" },
+      { player: "aubry", type: "correct_vote" },
+
+      // Zero Votes Received Tribal 2 (Cirie got 4, Aubry got 2)
+      { player: "jonathan", type: "zero_votes_received" },
+      { player: "rizo", type: "zero_votes_received" },
+      { player: "joe", type: "zero_votes_received" },
+      { player: "tiffany", type: "zero_votes_received" },
+
+      // Voted Out
+      { player: "cirie", type: "voted_out" },
+
+      // --- Survive Episode (Final 5) ---
+      { player: "rizo", type: "survive_episode" },
+      { player: "jonathan", type: "survive_episode" },
+      { player: "tiffany", type: "survive_episode" },
+      { player: "aubry", type: "survive_episode" },
+      { player: "joe", type: "survive_episode" },
+    ],
+  },
 ];
