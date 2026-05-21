@@ -1046,4 +1046,90 @@ export const episodes: Episode[] = [
       { player: "joe", type: "survive_episode" },
     ],
   },
+  {
+    episode: 13,
+    title: "Reverse the Curse",
+    airDate: "2026-05-20",
+    events: [
+      // --- Finale, Final 5: Aubry, Joe, Jonathan, Rizo, Tiffany ---
+
+      // === FINAL 5 ===
+
+      // --- Individual Immunity Challenge ---
+      // Jonathan wins (held on by "literally just one piece" to best Tiffany)
+      { player: "jonathan", type: "individual_immunity" },
+
+      // --- Tribal Council 1 (4-1: Tiffany voted out, 10th jury member) ---
+      // Rizo played his idol (wasted — received 0 votes, no points)
+      // Voted Tiffany (4): Aubry, Jonathan, Joe, Rizo
+      // Voted Aubry (1): Tiffany
+
+      // Survive Tribal
+      { player: "aubry", type: "survive_tribal" },
+      { player: "jonathan", type: "survive_tribal" },
+      { player: "joe", type: "survive_tribal" },
+      { player: "rizo", type: "survive_tribal" },
+
+      // Correct Vote (voted Tiffany)
+      { player: "aubry", type: "correct_vote" },
+      { player: "jonathan", type: "correct_vote" },
+      { player: "joe", type: "correct_vote" },
+      { player: "rizo", type: "correct_vote" },
+
+      // Zero Votes Received (Aubry got 1 from Tiffany)
+      { player: "jonathan", type: "zero_votes_received" },
+      { player: "joe", type: "zero_votes_received" },
+      { player: "rizo", type: "zero_votes_received" },
+
+      // Voted Out
+      { player: "tiffany", type: "voted_out" },
+
+      // === FINAL 4 ===
+
+      // --- Final Immunity Challenge "Simmotion" ---
+      // Aubry wins (her first individual immunity of the season)
+      { player: "aubry", type: "individual_immunity" },
+
+      // --- Final 4 Tribal: Aubry chose Joe; Jonathan & Rizo to fire ---
+      // Jonathan won fire-making, eliminating Rizo (11th jury member)
+
+      // Survive Tribal (Aubry immune, Joe chosen, Jonathan won fire)
+      { player: "aubry", type: "survive_tribal" },
+      { player: "joe", type: "survive_tribal" },
+      { player: "jonathan", type: "survive_tribal" },
+
+      // Voted Out (lost fire-making)
+      { player: "rizo", type: "voted_out" },
+
+      // === FINAL TRIBAL COUNCIL ===
+      // Reach FTC: Aubry, Joe, Jonathan
+      { player: "aubry", type: "reach_ftc" },
+      { player: "joe", type: "reach_ftc" },
+      { player: "jonathan", type: "reach_ftc" },
+
+      // --- Jury Vote (8-3-0: Aubry wins) ---
+      // Aubry: 8 jury votes
+      { player: "aubry", type: "jury_vote" },
+      { player: "aubry", type: "jury_vote" },
+      { player: "aubry", type: "jury_vote" },
+      { player: "aubry", type: "jury_vote" },
+      { player: "aubry", type: "jury_vote" },
+      { player: "aubry", type: "jury_vote" },
+      { player: "aubry", type: "jury_vote" },
+      { player: "aubry", type: "jury_vote" },
+      // Jonathan: 3 jury votes
+      { player: "jonathan", type: "jury_vote" },
+      { player: "jonathan", type: "jury_vote" },
+      { player: "jonathan", type: "jury_vote" },
+      // Joe: 0 jury votes
+
+      // --- Sole Survivor ---
+      { player: "aubry", type: "sole_survivor" },
+
+      // --- Survive Episode (final 3) ---
+      { player: "aubry", type: "survive_episode" },
+      { player: "joe", type: "survive_episode" },
+      { player: "jonathan", type: "survive_episode" },
+    ],
+  },
 ];
