@@ -9,6 +9,7 @@ const links = [
   { href: "/cast", label: "Cast" },
   { href: "/episodes", label: "Episodes" },
   { href: "/rules", label: "Rules" },
+  { href: "/draft", label: "Draft" },
 ];
 
 export default function Navbar() {
