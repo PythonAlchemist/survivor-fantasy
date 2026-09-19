@@ -1,32 +1,33 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { teams } from "@/data/teams";
+import { seasons, getSeason } from "@/data/seasons";
 import { getTeamBySlug, getPlayerEpisodeBreakdown } from "@/lib/scoring";
 import PlayerCard from "@/components/PlayerCard";
 import EpisodeScoring from "@/components/EpisodeScoring";
 
 export function generateStaticParams() {
-  return teams.map((team) => ({ slug: team.slug }));
+  return Object.values(seasons).flatMap((s) =>
+    s.teams.map((team) => ({ season: s.key, slug: team.slug })),
+  );
 }
 
-export function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  return params.then(({ slug }) => {
-    const team = teams.find((t) => t.slug === slug);
-    return {
-      title: team ? `${team.drafter}'s Team | Survivor 50 Fantasy` : "Team Not Found",
-    };
-  });
+export async function generateMetadata({ params }: { params: Promise<{ season: string; slug: string }> }) {
+  const { season, slug } = await params;
+  const meta = getSeason(season);
+  const team = meta?.teams.find((t) => t.slug === slug);
+  return { title: team ? `${team.drafter}'s Team | ${meta!.title} Fantasy` : "Team Not Found" };
 }
 
-export default async function TeamDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const team = getTeamBySlug(slug);
+export default async function TeamDetailPage({ params }: { params: Promise<{ season: string; slug: string }> }) {
+  const { season, slug } = await params;
+  if (!getSeason(season)) notFound();
+  const team = getTeamBySlug(season, slug);
   if (!team) notFound();
 
   return (
     <div>
       <Link
-        href="/"
+        href={`/${season}`}
         className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-white transition-colors mb-8"
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -52,7 +53,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
         {team.players.map((player) => (
-          <PlayerCard key={player.playerId} player={player} />
+          <PlayerCard key={player.playerId} season={season} player={player} />
         ))}
       </div>
 
@@ -60,7 +61,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
         <h2 className="text-lg font-semibold text-white mb-5">Episode Breakdown</h2>
         <div className="space-y-8">
           {team.players.map((player) => {
-            const epScores = getPlayerEpisodeBreakdown(player.playerId);
+            const epScores = getPlayerEpisodeBreakdown(season, player.playerId);
             if (epScores.length === 0) return null;
             return (
               <div key={player.playerId}>
@@ -72,7 +73,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ slu
             );
           })}
           {team.players.every(
-            (p) => getPlayerEpisodeBreakdown(p.playerId).length === 0
+            (p) => getPlayerEpisodeBreakdown(season, p.playerId).length === 0
           ) && (
             <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-8 text-center">
               <p className="text-gray-500">

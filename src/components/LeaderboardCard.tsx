@@ -7,13 +7,14 @@ interface LeaderboardCardProps {
   team: TeamScore;
   rank: number;
   eliminatedIds: Set<string>;
+  season: string;
 }
 
-export default function LeaderboardCard({ team, rank, eliminatedIds }: LeaderboardCardProps) {
+export default function LeaderboardCard({ team, rank, eliminatedIds, season }: LeaderboardCardProps) {
   const isFirst = rank === 1;
 
   return (
-    <Link href={`/teams/${team.slug}`} className="block group">
+    <Link href={`/${season}/teams/${team.slug}`} className="block group">
       <div
         className={`relative rounded-xl p-5 sm:p-6 transition-all duration-200 border ${
           isFirst

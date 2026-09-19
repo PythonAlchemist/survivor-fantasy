@@ -4,14 +4,15 @@ import { PlayerScore } from "@/lib/scoring";
 import { players } from "@/data/players";
 
 interface PlayerCardProps {
+  season: string;
   player: PlayerScore;
 }
 
-export default function PlayerCard({ player }: PlayerCardProps) {
+export default function PlayerCard({ player, season }: PlayerCardProps) {
   const playerData = players[player.playerId];
 
   return (
-    <Link href={`/cast/${player.playerId}`} className="block group">
+    <Link href={`/${season}/cast/${player.playerId}`} className="block group">
       <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-4 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all">
         <div className="flex items-center gap-3 mb-3">
           <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-white/[0.1]">

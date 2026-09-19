@@ -1,25 +1,27 @@
-import { episodes } from "@/data/episodes";
-import { players } from "@/data/players";
-import { teams } from "@/data/teams";
+import { notFound } from "next/navigation";
+import { getSeason, seasonKeys } from "@/data/seasons";
 import { scoringRules, pointValues } from "@/data/scoring";
 import type { EventType } from "@/data/scoring";
 import EpisodeAccordion from "@/components/EpisodeAccordion";
 
-export const metadata = {
-  title: "Episodes | Survivor 50 Fantasy",
-};
+export function generateStaticParams() {
+  return seasonKeys.map((season) => ({ season }));
+}
 
 function getEventLabel(type: EventType): string {
   return scoringRules.find((r) => r.type === type)?.label ?? type;
 }
 
-function getDrafterForPlayer(playerId: string): string | null {
-  const team = teams.find((t) => t.playerIds.includes(playerId));
-  return team?.drafter ?? null;
-}
+export default async function EpisodesPage({ params }: { params: Promise<{ season: string }> }) {
+  const { season } = await params;
+  const meta = getSeason(season);
+  if (!meta) notFound();
 
-export default function EpisodesPage() {
-  const reversedEpisodes = [...episodes].reverse();
+  const players = meta.players;
+  const getDrafterForPlayer = (playerId: string) =>
+    meta.teams.find((t) => t.playerIds.includes(playerId))?.drafter ?? null;
+
+  const reversedEpisodes = [...meta.episodes].reverse();
 
   return (
     <div>

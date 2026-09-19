@@ -4,21 +4,26 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const links = [
-  { href: "/", label: "Leaderboard" },
-  { href: "/cast", label: "Cast" },
-  { href: "/episodes", label: "Episodes" },
-  { href: "/rules", label: "Rules" },
-  { href: "/draft", label: "Draft" },
+import { seasons, CURRENT_SEASON } from "@/data/seasons";
+
+const sections = [
+  { path: "", label: "Leaderboard" },
+  { path: "/cast", label: "Cast" },
+  { path: "/episodes", label: "Episodes" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
+  const active = Object.keys(seasons).find((k) => pathname.startsWith(`/${k}`)) ?? CURRENT_SEASON;
+  const links = [
+    ...sections.map((s) => ({ href: `/${active}${s.path}`, label: s.label })),
+    { href: "/rules", label: "Rules" },
+  ];
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-[#0a0e17]/80 border-b border-white/[0.06]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 group">
+        <Link href={`/${active}`} className="flex items-center gap-2.5 group">
           <Image
             src="/images/logo.webp"
             alt="Survivor 50"
@@ -33,8 +38,8 @@ export default function Navbar() {
         <div className="flex gap-1 bg-white/[0.04] rounded-full p-1">
           {links.map((link) => {
             const isActive =
-              link.href === "/"
-                ? pathname === "/"
+              link.href === `/${active}`
+                ? pathname === link.href
                 : pathname.startsWith(link.href);
             return (
               <Link
@@ -50,6 +55,22 @@ export default function Navbar() {
               </Link>
             );
           })}
+        </div>
+        <div className="flex gap-1 bg-white/[0.04] rounded-full p-1">
+          {Object.values(seasons).map((s) => (
+            <Link
+              key={s.key}
+              href={`/${s.key}`}
+              title={s.title}
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold tabular-nums transition-all ${
+                s.key === active
+                  ? "bg-white/[0.12] text-white"
+                  : "text-gray-500 hover:text-white"
+              }`}
+            >
+              S{s.number}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>

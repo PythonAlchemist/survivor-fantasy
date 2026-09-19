@@ -1,33 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
-import { players } from "@/data/players";
-import { teams } from "@/data/teams";
+import { notFound } from "next/navigation";
+import { getSeason, seasonKeys } from "@/data/seasons";
 import { getPlayerScores } from "@/lib/scoring";
 
-export const metadata = {
-  title: "Cast | Survivor 50 Fantasy",
-};
-
-function getDrafterForPlayer(playerId: string): string | null {
-  const team = teams.find((t) => t.playerIds.includes(playerId));
-  return team?.drafter ?? null;
+export function generateStaticParams() {
+  return seasonKeys.map((season) => ({ season }));
 }
 
-export default function CastPage() {
-  const playerScores = getPlayerScores();
-  const allPlayers = Object.values(players);
+export default async function CastPage({ params }: { params: Promise<{ season: string }> }) {
+  const { season } = await params;
+  const meta = getSeason(season);
+  if (!meta) notFound();
+
+  const getDrafterForPlayer = (playerId: string) =>
+    meta.teams.find((t) => t.playerIds.includes(playerId))?.drafter ?? null;
+
+  const playerScores = getPlayerScores(season);
+  const allPlayers = Object.values(meta.players);
 
   return (
     <div>
       <div className="mb-10 pt-4">
         <p className="text-sm font-medium tracking-widest text-[#F5C518] uppercase mb-2">
-          Season 50
+          Season {meta.number}
         </p>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
           The Cast
         </h1>
         <p className="text-gray-500 mt-2 max-w-lg">
-          24 returning players competing for the title of Sole Survivor.
+          {Object.keys(meta.players).length} castaways competing for the title of Sole Survivor.
         </p>
       </div>
 
@@ -39,7 +41,7 @@ export default function CastPage() {
           return (
             <Link
               key={player.id}
-              href={`/cast/${player.id}`}
+              href={`/${season}/cast/${player.id}`}
               className="group block"
             >
               <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl overflow-hidden hover:bg-white/[0.04] hover:border-white/[0.12] transition-all">

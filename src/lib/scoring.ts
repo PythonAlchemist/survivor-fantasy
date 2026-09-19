@@ -1,7 +1,12 @@
-import { episodes } from "@/data/episodes";
 import { pointValues, EventType } from "@/data/scoring";
-import { teams } from "@/data/teams";
-import { players } from "@/data/players";
+import { getSeason, type Season } from "@/data/seasons";
+
+/** Every scoring function is scoped to one season. */
+function season(key: string): Season {
+  const s = getSeason(key);
+  if (!s) throw new Error(`Unknown season: ${key}`);
+  return s;
+}
 
 export interface PlayerScore {
   playerId: string;
@@ -17,7 +22,8 @@ export interface TeamScore {
   players: PlayerScore[];
 }
 
-export function getPlayerScores(): Record<string, PlayerScore> {
+export function getPlayerScores(seasonKey: string): Record<string, PlayerScore> {
+  const { players, episodes } = season(seasonKey);
   const scores: Record<string, PlayerScore> = {};
 
   // Initialize all players
@@ -44,8 +50,9 @@ export function getPlayerScores(): Record<string, PlayerScore> {
   return scores;
 }
 
-export function getTeamScores(): TeamScore[] {
-  const playerScores = getPlayerScores();
+export function getTeamScores(seasonKey: string): TeamScore[] {
+  const { teams } = season(seasonKey);
+  const playerScores = getPlayerScores(seasonKey);
 
   return teams
     .map((team) => {
@@ -61,8 +68,8 @@ export function getTeamScores(): TeamScore[] {
     .sort((a, b) => b.total - a.total);
 }
 
-export function getTeamBySlug(slug: string): TeamScore | undefined {
-  const allTeams = getTeamScores();
+export function getTeamBySlug(seasonKey: string, slug: string): TeamScore | undefined {
+  const allTeams = getTeamScores(seasonKey);
   return allTeams.find((t) => t.slug === slug);
 }
 
@@ -75,7 +82,8 @@ export interface PlayerEpisodeScore {
 
 const ELIMINATION_EVENTS: EventType[] = ["voted_out", "medevac", "quit"];
 
-export function getEliminatedPlayerIds(): Set<string> {
+export function getEliminatedPlayerIds(seasonKey: string): Set<string> {
+  const { episodes } = season(seasonKey);
   const eliminated = new Set<string>();
   for (const episode of episodes) {
     for (const event of episode.events) {
@@ -87,8 +95,8 @@ export function getEliminatedPlayerIds(): Set<string> {
   return eliminated;
 }
 
-export function getPlayerEpisodeBreakdown(playerId: string): PlayerEpisodeScore[] {
-  return episodes
+export function getPlayerEpisodeBreakdown(seasonKey: string, playerId: string): PlayerEpisodeScore[] {
+  return season(seasonKey).episodes
     .filter((ep) => ep.events.some((e) => e.player === playerId))
     .map((ep) => {
       const playerEvents = ep.events.filter((e) => e.player === playerId);

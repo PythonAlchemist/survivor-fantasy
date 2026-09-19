@@ -1,38 +1,38 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { players } from "@/data/players";
-import { teams } from "@/data/teams";
+import { seasons, getSeason } from "@/data/seasons";
 import { getPlayerScores, getPlayerEpisodeBreakdown } from "@/lib/scoring";
 import EpisodeScoring from "@/components/EpisodeScoring";
 
 export function generateStaticParams() {
-  return Object.keys(players).map((id) => ({ id }));
+  return Object.values(seasons).flatMap((s) =>
+    Object.keys(s.players).map((id) => ({ season: s.key, id })),
+  );
 }
 
-export function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
-  return params.then(({ id }) => {
-    const player = players[id];
-    return {
-      title: player ? `${player.name} | Survivor 50 Fantasy` : "Player Not Found",
-    };
-  });
+export async function generateMetadata({ params }: { params: Promise<{ season: string; id: string }> }) {
+  const { season, id } = await params;
+  const meta = getSeason(season);
+  const player = meta?.players[id];
+  return { title: player ? `${player.name} | ${meta!.title} Fantasy` : "Player Not Found" };
 }
 
-export default async function CastDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const player = players[id];
+export default async function CastDetailPage({ params }: { params: Promise<{ season: string; id: string }> }) {
+  const { season, id } = await params;
+  const meta = getSeason(season);
+  if (!meta) notFound();
+  const player = meta.players[id];
   if (!player) notFound();
 
-  const scores = getPlayerScores();
-  const playerScore = scores[id];
-  const epBreakdown = getPlayerEpisodeBreakdown(id);
-  const team = teams.find((t) => t.playerIds.includes(id));
+  const playerScore = getPlayerScores(season)[id];
+  const epBreakdown = getPlayerEpisodeBreakdown(season, id);
+  const team = meta.teams.find((t) => t.playerIds.includes(id));
 
   return (
     <div>
       <Link
-        href="/cast"
+        href={`/${season}/cast`}
         className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-white transition-colors mb-8"
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -88,7 +88,7 @@ export default async function CastDetailPage({ params }: { params: Promise<{ id:
                 <span className="text-xs text-gray-500 uppercase tracking-wider">Drafted by</span>
                 <p className="mt-0.5">
                   <Link
-                    href={`/teams/${team.slug}`}
+                    href={`/${season}/teams/${team.slug}`}
                     className="text-[#F5C518] text-sm font-medium hover:underline"
                   >
                     {team.drafter}
@@ -101,7 +101,7 @@ export default async function CastDetailPage({ params }: { params: Promise<{ id:
           {/* S50 Score */}
           <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4 inline-flex items-center gap-4">
             <div>
-              <span className="text-xs text-gray-500 uppercase tracking-wider">S50 Points</span>
+              <span className="text-xs text-gray-500 uppercase tracking-wider">S{meta.number} Points</span>
               <div
                 className={`text-3xl font-extrabold tabular-nums ${
                   playerScore.total > 0
