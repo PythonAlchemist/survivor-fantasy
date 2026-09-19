@@ -1,7 +1,10 @@
 import { put, list, del } from "@vercel/blob";
 
-export const ROUNDS = 5;
-export const DEFAULT_DRAFTERS = ["Drafter 1", "Drafter 2", "Drafter 3", "Drafter 4"];
+export const CAST_SIZE = 21;
+/** Rounds are derived so the draft stays whole if the roster size changes. */
+export const roundsFor = (drafterCount: number) =>
+  Math.max(1, Math.floor(CAST_SIZE / Math.max(1, drafterCount)));
+export const DEFAULT_DRAFTERS = ["Chris S", "Chris L", "Sam", "Lauren", "Mikayla"];
 
 export interface Pick {
   castawayId: string;
@@ -29,7 +32,7 @@ export function emptyState(drafters = DEFAULT_DRAFTERS): DraftState {
 }
 
 /** Snake order: 1-2-3-4, 4-3-2-1, ... one entry per pick slot. */
-export function pickSlots(drafters: string[], rounds = ROUNDS): string[] {
+export function pickSlots(drafters: string[], rounds = roundsFor(drafters.length)): string[] {
   const slots: string[] = [];
   for (let r = 0; r < rounds; r++) {
     const row = r % 2 === 0 ? drafters : [...drafters].reverse();

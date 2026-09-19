@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { s51Cast, castById } from "@/data/s51Cast";
-import { pickSlots, onTheClock, ROUNDS, type DraftState } from "@/lib/draft";
+import { pickSlots, onTheClock, roundsFor, type DraftState } from "@/lib/draft";
 
 const POLL_MS = 3000;
 
@@ -55,6 +55,7 @@ export default function DraftPage() {
   }
 
   const slots = pickSlots(state.drafters);
+  const rounds = roundsFor(state.drafters.length);
   const clock = onTheClock(state);
   const takenBy = new Map(state.picks.map((p) => [p.castawayId, p.drafter]));
   const started = state.picks.length > 0;
@@ -70,7 +71,7 @@ export default function DraftPage() {
           Draft Board
         </h1>
         <p className="text-gray-500 mt-2">
-          Snake order · {ROUNDS} rounds · {slots.length} picks · {remaining} castaways left
+          Snake order · {rounds} rounds · {slots.length} picks · {remaining} castaways left
         </p>
       </div>
 
@@ -119,7 +120,7 @@ export default function DraftPage() {
           <p className="text-[11px] uppercase tracking-widest text-gray-500 mb-3">
             Draft order — first to last. Editable until the first pick.
           </p>
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {names.map((n, i) => (
               <input
                 key={i}
@@ -132,13 +133,29 @@ export default function DraftPage() {
               />
             ))}
           </div>
+          <div className="mt-3 flex flex-wrap gap-2">
+          <button
+            onClick={() => {
+              const shuffled = [...names];
+              for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+              }
+              setNames(shuffled);
+            }}
+            disabled={busy}
+            className="text-xs uppercase tracking-widest px-4 py-2 rounded-md border border-white/[0.12] text-gray-400 hover:text-white hover:border-white/30 disabled:opacity-40 transition-colors"
+          >
+            Randomise order
+          </button>
           <button
             onClick={() => { editing.current = false; send("setDrafters", { drafters: names }); }}
             disabled={busy}
-            className="mt-3 text-xs uppercase tracking-widest px-4 py-2 rounded-md bg-[#F5C518] text-black font-semibold hover:bg-[#ffd633] disabled:opacity-40 transition-colors"
+            className="text-xs uppercase tracking-widest px-4 py-2 rounded-md bg-[#F5C518] text-black font-semibold hover:bg-[#ffd633] disabled:opacity-40 transition-colors"
           >
             Save order
           </button>
+          </div>
         </div>
       )}
 
@@ -190,7 +207,7 @@ export default function DraftPage() {
 
       {/* rosters */}
       <h2 className="text-xl font-bold text-white mb-4">Teams</h2>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-12">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 mb-12">
         {state.drafters.map((d) => {
           const roster = state.picks.filter((p) => p.drafter === d);
           return (
