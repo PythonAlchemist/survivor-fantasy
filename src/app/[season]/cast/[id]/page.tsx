@@ -4,6 +4,8 @@ import Link from "next/link";
 import { seasons, getSeason } from "@/data/seasons";
 import { getPlayerScores, getPlayerEpisodeBreakdown } from "@/lib/scoring";
 import EpisodeScoring from "@/components/EpisodeScoring";
+import ScoutingReport from "@/components/ScoutingReport";
+import { s51Research } from "@/data/s51/research";
 
 export function generateStaticParams() {
   return Object.values(seasons).flatMap((s) =>
@@ -28,6 +30,7 @@ export default async function CastDetailPage({ params }: { params: Promise<{ sea
   const playerScore = getPlayerScores(season)[id];
   const epBreakdown = getPlayerEpisodeBreakdown(season, id);
   const team = meta.teams.find((t) => t.playerIds.includes(id));
+  const research = season === "s51" ? s51Research[id] : undefined;
 
   return (
     <div>
@@ -129,6 +132,8 @@ export default async function CastDetailPage({ params }: { params: Promise<{ sea
           </div>
         </div>
       </div>
+
+      {research && <ScoutingReport r={research} />}
 
       {/* Episode Breakdown */}
       <div className="border-t border-white/[0.06] pt-8">
