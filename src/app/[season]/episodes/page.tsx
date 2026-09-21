@@ -12,6 +12,11 @@ function getEventLabel(type: EventType): string {
   return scoringRules.find((r) => r.type === type)?.label ?? type;
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ season: string }> }) {
+  const meta = getSeason((await params).season);
+  return { title: meta ? `Episodes — ${meta.title}` : "Episodes" };
+}
+
 export default async function EpisodesPage({ params }: { params: Promise<{ season: string }> }) {
   const { season } = await params;
   const meta = getSeason(season);
@@ -33,7 +38,7 @@ export default async function EpisodesPage({ params }: { params: Promise<{ seaso
           Episodes
         </h1>
         <p className="text-gray-500 mt-2 max-w-lg">
-          Full scoring breakdown for every episode of Survivor 50.
+          Full scoring breakdown for every episode of {meta.title}.
         </p>
       </div>
 

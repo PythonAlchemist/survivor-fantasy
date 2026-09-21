@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ season: s
   const { season, id } = await params;
   const meta = getSeason(season);
   const player = meta?.players[id];
-  return { title: player ? `${player.name} | ${meta!.title} Fantasy` : "Player Not Found" };
+  return { title: player ? `${player.name} — ${meta!.title}` : "Player Not Found" };
 }
 
 export default async function CastDetailPage({ params }: { params: Promise<{ season: string; id: string }> }) {

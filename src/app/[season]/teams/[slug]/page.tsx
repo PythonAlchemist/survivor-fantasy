@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ season: s
   const { season, slug } = await params;
   const meta = getSeason(season);
   const team = meta?.teams.find((t) => t.slug === slug);
-  return { title: team ? `${team.drafter}'s Team | ${meta!.title} Fantasy` : "Team Not Found" };
+  return { title: team ? `${team.drafter}'s Team — ${meta!.title}` : "Team Not Found" };
 }
 
 export default async function TeamDetailPage({ params }: { params: Promise<{ season: string; slug: string }> }) {

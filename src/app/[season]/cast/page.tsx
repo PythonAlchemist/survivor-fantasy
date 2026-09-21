@@ -8,6 +8,11 @@ export function generateStaticParams() {
   return seasonKeys.map((season) => ({ season }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ season: string }> }) {
+  const meta = getSeason((await params).season);
+  return { title: meta ? `Cast — ${meta.title}` : "Cast" };
+}
+
 export default async function CastPage({ params }: { params: Promise<{ season: string }> }) {
   const { season } = await params;
   const meta = getSeason(season);

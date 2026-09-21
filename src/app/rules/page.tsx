@@ -1,7 +1,7 @@
 import ScoringTable from "@/components/ScoringTable";
 
 export const metadata = {
-  title: "Scoring Rules | Survivor 50 Fantasy",
+  title: "Scoring Rules",
 };
 
 export default function RulesPage() {

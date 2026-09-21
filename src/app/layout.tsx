@@ -9,8 +9,11 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Survivor 50 Fantasy Draft",
-  description: "Fantasy draft leaderboard for Survivor Season 50",
+  title: {
+    default: "Survivor Fantasy League",
+    template: "%s | Survivor Fantasy League",
+  },
+  description: "Fantasy draft leaderboard for the Survivor Fantasy League",
 };
 
 export default function RootLayout({
