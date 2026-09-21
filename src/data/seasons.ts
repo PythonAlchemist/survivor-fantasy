@@ -11,6 +11,7 @@ export interface Season {
   title: string;
   subtitle: string;
   premiere: string;
+  logo: { src: string; width: number; height: number };
   players: Record<string, Player>;
   teams: Team[];
   episodes: Episode[];
@@ -23,6 +24,7 @@ export const seasons: Record<string, Season> = {
     title: "Survivor 50",
     subtitle: "In the Hands of the Fans",
     premiere: "2026-02-25T20:00:00-05:00",
+    logo: { src: "/images/logo.webp", width: 1000, height: 621 },
     players: s50Players,
     teams: s50Teams,
     episodes: s50Episodes,
@@ -33,6 +35,7 @@ export const seasons: Record<string, Season> = {
     title: "Survivor 51",
     subtitle: "The Open Era",
     premiere: "2026-09-23T20:00:00-04:00",
+    logo: { src: "/images/s51-logo.png", width: 640, height: 415 },
     players: s51Players,
     teams: s51Teams,
     episodes: s51Episodes,
@@ -44,3 +47,9 @@ export const CURRENT_SEASON = "s51";
 
 export const seasonKeys = Object.keys(seasons);
 export const getSeason = (key: string): Season | undefined => seasons[key];
+
+/** Scale a season logo to a target height, preserving its aspect ratio. */
+export function logoAt(season: Season, height: number) {
+  const { src, width, height: h } = season.logo;
+  return { src, height, width: Math.round((width / h) * height) };
+}

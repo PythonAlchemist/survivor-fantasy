@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-import { seasons, CURRENT_SEASON } from "@/data/seasons";
+import { seasons, CURRENT_SEASON, logoAt } from "@/data/seasons";
 
 const sections = [
   { path: "", label: "Leaderboard" },
@@ -15,6 +15,7 @@ const sections = [
 export default function Navbar() {
   const pathname = usePathname();
   const active = Object.keys(seasons).find((k) => pathname.startsWith(`/${k}`)) ?? CURRENT_SEASON;
+  const mark = logoAt(seasons[active], 34);
   const links = [
     ...sections.map((s) => ({ href: `/${active}${s.path}`, label: s.label })),
     { href: "/rules", label: "Rules" },
@@ -25,11 +26,12 @@ export default function Navbar() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <Link href={`/${active}`} className="flex items-center gap-2.5 group">
           <Image
-            src="/images/logo.webp"
-            alt="Survivor 50"
-            width={40}
-            height={40}
+            src={mark.src}
+            alt={seasons[active].title}
+            width={mark.width}
+            height={mark.height}
             className="rounded-md"
+            priority
           />
           <span className="text-white font-semibold text-base tracking-tight group-hover:text-[#F5C518] transition-colors hidden sm:inline">
             Fantasy Draft

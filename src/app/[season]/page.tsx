@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTeamScores, getEliminatedPlayerIds } from "@/lib/scoring";
-import { getSeason, seasonKeys } from "@/data/seasons";
+import { getSeason, seasonKeys, logoAt } from "@/data/seasons";
 import LeaderboardCard from "@/components/LeaderboardCard";
 
 export function generateStaticParams() {
@@ -18,16 +18,17 @@ export default async function Home({ params }: { params: Promise<{ season: strin
   const episodes = meta.episodes;
   const hasEpisodes = episodes.length > 0;
   const isPrePremiere = new Date() < new Date(meta.premiere) && !hasEpisodes;
+  const hero = logoAt(meta, 150);
 
   return (
     <div>
       {/* Hero */}
       <div className="text-center mb-12 pt-4">
         <Image
-          src="/images/logo.webp"
+          src={hero.src}
           alt={meta.title}
-          width={160}
-          height={160}
+          width={hero.width}
+          height={hero.height}
           className="mx-auto mb-5"
           priority
         />
