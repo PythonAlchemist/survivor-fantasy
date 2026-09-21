@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { TeamScore } from "@/lib/scoring";
-import { players } from "@/data/players";
+import { getSeason } from "@/data/seasons";
 
 interface LeaderboardCardProps {
   team: TeamScore;
@@ -44,7 +44,7 @@ export default function LeaderboardCard({ team, rank, eliminatedIds, season }: L
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
           {team.players.map((player) => {
-            const playerData = players[player.playerId];
+            const playerData = getSeason(season)?.players[player.playerId];
             const isEliminated = eliminatedIds.has(player.playerId);
             return (
               <div
@@ -53,15 +53,21 @@ export default function LeaderboardCard({ team, rank, eliminatedIds, season }: L
                   isEliminated ? "opacity-40" : ""
                 }`}
               >
-                <Image
-                  src={playerData?.imageUrl ?? ""}
-                  alt={player.name}
-                  width={24}
-                  height={24}
-                  className={`w-6 h-6 rounded-full object-cover flex-shrink-0 ${
-                    isEliminated ? "grayscale" : ""
-                  }`}
-                />
+                {playerData?.imageUrl ? (
+                  <Image
+                    src={playerData.imageUrl}
+                    alt={player.name}
+                    width={24}
+                    height={24}
+                    className={`w-6 h-6 rounded-full object-cover flex-shrink-0 ${
+                      isEliminated ? "grayscale" : ""
+                    }`}
+                  />
+                ) : (
+                  <span className="w-6 h-6 rounded-full flex-shrink-0 bg-white/[0.07] text-[9px] font-semibold text-gray-400 flex items-center justify-center">
+                    {initials(player.name)}
+                  </span>
+                )}
                 <span className={`text-[13px] truncate flex-1 ${
                   isEliminated ? "line-through text-gray-600" : "text-gray-400"
                 }`}>
@@ -92,4 +98,14 @@ export default function LeaderboardCard({ team, rank, eliminatedIds, season }: L
       </div>
     </Link>
   );
+}
+
+/** Fallback avatar text, so a missing portrait never renders a broken image. */
+function initials(name: string): string {
+  return name
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0] ?? "")
+    .join("")
+    .toUpperCase();
 }

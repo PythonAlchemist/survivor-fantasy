@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { PlayerScore } from "@/lib/scoring";
-import { players } from "@/data/players";
+import { getSeason } from "@/data/seasons";
 
 interface PlayerCardProps {
   season: string;
@@ -9,20 +9,26 @@ interface PlayerCardProps {
 }
 
 export default function PlayerCard({ player, season }: PlayerCardProps) {
-  const playerData = players[player.playerId];
+  const playerData = getSeason(season)?.players[player.playerId];
 
   return (
     <Link href={`/${season}/cast/${player.playerId}`} className="block group">
       <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-4 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all">
         <div className="flex items-center gap-3 mb-3">
-          <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-white/[0.1]">
-            <Image
-              src={playerData?.imageUrl ?? ""}
-              alt={player.name}
-              width={40}
-              height={40}
-              className="w-full h-full object-cover"
-            />
+          <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-white/[0.1] bg-white/[0.07] flex items-center justify-center">
+            {playerData?.imageUrl ? (
+              <Image
+                src={playerData.imageUrl}
+                alt={player.name}
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <span className="text-[11px] font-semibold text-gray-400">
+                {player.name.split(/\s+/).slice(0, 2).map((w) => w[0] ?? "").join("").toUpperCase()}
+              </span>
+            )}
           </div>
           <div className="flex-1 min-w-0">
             <h4 className="text-white font-medium text-sm truncate group-hover:text-[#F5C518] transition-colors">
