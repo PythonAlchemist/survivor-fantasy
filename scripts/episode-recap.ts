@@ -55,20 +55,29 @@ function main() {
   }
 
   // --- Event table for this episode ---
-  const byType = new Map<EventType, string[]>();
+  // A player can legitimately earn the same EventType twice in one episode
+  // (e.g. a tribe sweeping both reward and immunity each log as a separate
+  // tribal_win). Count occurrences per player rather than listing the name
+  // twice, so a double-win reads as "Name x2" instead of looking like a
+  // duplicate-data bug.
+  const byType = new Map<EventType, Map<string, number>>();
   for (const ev of episode.events) {
-    const list = byType.get(ev.type) ?? [];
-    list.push(nameOf[ev.player] ?? ev.player);
-    byType.set(ev.type, list);
+    const counts = byType.get(ev.type) ?? new Map<string, number>();
+    const name = nameOf[ev.player] ?? ev.player;
+    counts.set(name, (counts.get(name) ?? 0) + 1);
+    byType.set(ev.type, counts);
   }
 
   console.log(`## Episode ${episode.episode} Points Breakdown: "${episode.title}"\n`);
   console.log("| Event | Players | Pts Each |");
   console.log("|---|---|---|");
   for (const type of EPISODE_ROW_ORDER) {
-    const players = byType.get(type);
-    if (!players) continue;
-    console.log(`| ${labelOf[type] ?? type} | ${players.join(", ")} | ${fmtPts(pointValues[type])} |`);
+    const counts = byType.get(type);
+    if (!counts) continue;
+    const players = [...counts.entries()]
+      .map(([name, n]) => (n > 1 ? `${name} x${n}` : name))
+      .join(", ");
+    console.log(`| ${labelOf[type] ?? type} | ${players} | ${fmtPts(pointValues[type])} |`);
   }
 
   // --- Running totals through this episode, and this-episode delta ---
