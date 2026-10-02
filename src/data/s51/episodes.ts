@@ -10,6 +10,20 @@ export const s51Episodes: Episode[] = [
       // tribe after the episode; not part of either tribe's roster yet, so
       // he scores no tribal_win/survive_tribal this episode) ---
 
+      // --- Reward Challenge: Captains' negotiation/thumb war for starting
+      // supplies (Kristin beat Kilby; Savu wins pot/flint/machete + fishing
+      // gear, Toka gets shelter supplies only) ---
+      { player: "alexis", type: "tribal_win" },
+      { player: "ana", type: "tribal_win" },
+      { player: "carter", type: "tribal_win" },
+      { player: "cristian", type: "tribal_win" },
+      { player: "eric", type: "tribal_win" },
+      { player: "kristin", type: "tribal_win" },
+      { player: "linnea", type: "tribal_win" },
+      { player: "ori", type: "tribal_win" },
+      { player: "rob", type: "tribal_win" },
+      { player: "sharonda", type: "tribal_win" },
+
       // --- Immunity Challenge (Savu 1st, Toka to Tribal) ---
       { player: "alexis", type: "tribal_win" },
       { player: "ana", type: "tribal_win" },
@@ -87,6 +101,19 @@ export const s51Episodes: Episode[] = [
     title: "Weaponized Honesty",
     airDate: "2026-09-30",
     events: [
+      // --- Reward Challenge: pairs drag a 500lb whale apparatus through
+      // water and over a roller; Savu fell behind and lost. Toka wins ---
+      { player: "brady", type: "tribal_win" },
+      { player: "devin", type: "tribal_win" },
+      { player: "jelly", type: "tribal_win" },
+      { player: "jenna", type: "tribal_win" },
+      { player: "kilby", type: "tribal_win" },
+      { player: "lewis", type: "tribal_win" },
+      { player: "maggie", type: "tribal_win" },
+      { player: "mike", type: "tribal_win" },
+      { player: "patt", type: "tribal_win" },
+      { player: "thienan", type: "tribal_win" },
+
       // --- Immunity Challenge (Toka 1st, Savu to Tribal) ---
       { player: "brady", type: "tribal_win" },
       { player: "devin", type: "tribal_win" },
