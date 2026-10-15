@@ -283,4 +283,86 @@ export const s51Episodes: Episode[] = [
       { player: "thienan", type: "survive_episode" },
     ],
   },
+  {
+    episode: 4,
+    title: "That's the Magic of Survivor",
+    airDate: "2026-10-14",
+    events: [
+      // --- Tribe switch (Day 8): 17 players redrawn into three tribes.
+      // Jeff brought 18 buffs expecting three tribes of six; Rob's quit
+      // last episode left Savu a man short at five.
+      //   Dina (new):  Cristian, Eric, Linnea, Sharonda (ex-Savu) + Kilby,
+      //                Lewis (ex-Toka)
+      //   Savu:        Alexis, Ori (stayed) + Devin, Jelly, Jenna (ex-Toka)
+      //   Toka:        Brady, Carter, Maggie, Mike, Thien An (stayed) +
+      //                Kristin (ex-Savu)
+      // No journey, no new idols or advantages this episode. Jelly still
+      // holds her episode-2 idol, undisclosed to the new tribe. ---
+
+      // --- Combined Reward/Immunity Challenge "Mazed and Confused": one
+      // challenge, not two (same pattern as episode 3), with a coffee kit
+      // attached. Two tribes safe for the first time this season, so
+      // finishing order matters: Dina 1st, Toka 2nd, Savu well behind. ---
+
+      // --- Tribal Challenge Win (1st) — Dina ---
+      { player: "cristian", type: "tribal_win" },
+      { player: "eric", type: "tribal_win" },
+      { player: "kilby", type: "tribal_win" },
+      { player: "lewis", type: "tribal_win" },
+      { player: "linnea", type: "tribal_win" },
+      { player: "sharonda", type: "tribal_win" },
+
+      // --- Tribal Challenge (2nd) — Toka. First use of this category:
+      // episodes 1-3 only ever had one safe tribe. ---
+      { player: "brady", type: "tribal_second" },
+      { player: "carter", type: "tribal_second" },
+      { player: "kristin", type: "tribal_second" },
+      { player: "maggie", type: "tribal_second" },
+      { player: "mike", type: "tribal_second" },
+      { player: "thienan", type: "tribal_second" },
+
+      // --- Survive Tribal Council (Savu, 5 attendees minus Jenna) ---
+      { player: "alexis", type: "survive_tribal" },
+      { player: "devin", type: "survive_tribal" },
+      { player: "jelly", type: "survive_tribal" },
+      { player: "ori", type: "survive_tribal" },
+
+      // --- Correct Vote (4-1: Alexis, Devin, Jelly, and Ori all vote
+      // Jenna. The ex-Toka bloc never held — Devin and Jelly had been on
+      // opposite sides of the Patt vote, so they sided with the two
+      // original Savus instead of their old tribemate) ---
+      { player: "alexis", type: "correct_vote" },
+      { player: "devin", type: "correct_vote" },
+      { player: "jelly", type: "correct_vote" },
+      { player: "ori", type: "correct_vote" },
+
+      // --- Zero Votes Received at Tribal (Alexis drew Jenna's lone vote
+      // after pitching Jenna on a split against Devin and Jelly and having
+      // the pitch reported straight back to them, so she does not qualify) ---
+      { player: "devin", type: "zero_votes_received" },
+      { player: "jelly", type: "zero_votes_received" },
+      { player: "ori", type: "zero_votes_received" },
+
+      // --- Voted Out (Jenna, 4-1) ---
+      { player: "jenna", type: "voted_out" },
+
+      // --- Survive Episode (all 16 remaining players) ---
+      { player: "alexis", type: "survive_episode" },
+      { player: "brady", type: "survive_episode" },
+      { player: "carter", type: "survive_episode" },
+      { player: "cristian", type: "survive_episode" },
+      { player: "devin", type: "survive_episode" },
+      { player: "eric", type: "survive_episode" },
+      { player: "jelly", type: "survive_episode" },
+      { player: "kilby", type: "survive_episode" },
+      { player: "kristin", type: "survive_episode" },
+      { player: "lewis", type: "survive_episode" },
+      { player: "linnea", type: "survive_episode" },
+      { player: "maggie", type: "survive_episode" },
+      { player: "mike", type: "survive_episode" },
+      { player: "ori", type: "survive_episode" },
+      { player: "sharonda", type: "survive_episode" },
+      { player: "thienan", type: "survive_episode" },
+    ],
+  },
 ];
