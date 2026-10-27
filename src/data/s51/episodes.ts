@@ -365,4 +365,116 @@ export const s51Episodes: Episode[] = [
       { player: "thienan", type: "survive_episode" },
     ],
   },
+  {
+    episode: 5,
+    title: "Not Here to Get a Pedicure",
+    airDate: "2026-10-21",
+    events: [
+      // --- Day 10 Double Tribal Council: per the season's announced twist,
+      // only the FIRST place tribe won immunity at the combined
+      // Reward/Immunity Challenge, sending both losing tribes to Tribal to
+      // vote out one person each. So there is no tribal_second this
+      // episode even though three tribes competed -- 2nd place was not
+      // safe. (Contrast episode 4, where 2nd place was safe.) ---
+
+      // --- Combined Reward/Immunity Challenge (buoy retrieval and net
+      // toss; Mike hit the clinching shot): Toka 1st, winning immunity
+      // plus a pastry reward. Dina and Savu both to Tribal. ---
+      { player: "brady", type: "tribal_win" },
+      { player: "carter", type: "tribal_win" },
+      { player: "kristin", type: "tribal_win" },
+      { player: "maggie", type: "tribal_win" },
+      { player: "mike", type: "tribal_win" },
+      { player: "thienan", type: "tribal_win" },
+
+      // --- Journey: the third Extra Vote of the season went to the
+      // immunity-winning tribe, who sent one member to a losing tribe's
+      // camp to gift it to anyone they chose. Maggie drew the trip at
+      // random (forfeiting her share of the pastries), picked Dina, and
+      // handed out TWO extra votes -- the journey one plus the one she had
+      // taken off Brady from the episode-3 Mutiny twist -- to Lewis and
+      // Kilby. Scored as find_advantage for the newly acquired journey
+      // advantage only, matching the episode-3 precedent (Brady and Devin
+      // each took find_advantage for a journey extra vote, no
+      // journey_win); the Brady handoff is a transfer, not a new find, and
+      // has no matching category, same as Rob's idol handoff in ep 3. ---
+      { player: "maggie", type: "find_advantage" },
+
+      // --- Survive Tribal Council: Savu (4 attendees minus Alexis) ---
+      { player: "devin", type: "survive_tribal" },
+      { player: "jelly", type: "survive_tribal" },
+      { player: "ori", type: "survive_tribal" },
+
+      // --- Survive Tribal Council: Dina (6 attendees minus Linnea) ---
+      { player: "cristian", type: "survive_tribal" },
+      { player: "eric", type: "survive_tribal" },
+      { player: "kilby", type: "survive_tribal" },
+      { player: "lewis", type: "survive_tribal" },
+      { player: "sharonda", type: "survive_tribal" },
+
+      // --- Correct Vote: Savu (3-1, Devin, Jelly and Ori all vote Alexis.
+      // Jelly wavered on turning on Devin but Alexis's own pitch about
+      // building new in-roads talked her out of it) ---
+      { player: "devin", type: "correct_vote" },
+      { player: "jelly", type: "correct_vote" },
+      { player: "ori", type: "correct_vote" },
+
+      // --- Correct Vote: Dina. No single decisive ballot here -- the
+      // initial vote tied 4-4 (Cristian, Eric, Sharonda and Linnea on
+      // Lewis; Kilby and Lewis each voting Linnea twice off Maggie's extra
+      // votes), the revote deadlocked 4-4, and Linnea was then eliminated
+      // 4-0 by consensus when the ex-Savu bloc refused a 1-in-4 rock draw.
+      // League ruling for deadlocks: credit every player who cast a vote
+      // for the eliminated castaway in ANY round, which here is all five
+      // survivors (the official voting history records the consensus as a
+      // 4-0 vote column). ---
+      { player: "cristian", type: "correct_vote" },
+      { player: "eric", type: "correct_vote" },
+      { player: "kilby", type: "correct_vote" },
+      { player: "lewis", type: "correct_vote" },
+      { player: "sharonda", type: "correct_vote" },
+
+      // --- Zero Votes Received at Tribal: Savu (Devin took Alexis's lone
+      // vote and does not qualify) ---
+      { player: "jelly", type: "zero_votes_received" },
+      { player: "ori", type: "zero_votes_received" },
+
+      // --- Zero Votes Received at Tribal: Dina (Lewis took 4 votes on the
+      // initial vote and 4 again on the revote, so he does not qualify) ---
+      { player: "cristian", type: "zero_votes_received" },
+      { player: "eric", type: "zero_votes_received" },
+      { player: "kilby", type: "zero_votes_received" },
+      { player: "sharonda", type: "zero_votes_received" },
+
+      // --- Advantages used: the two extra votes were decisive. Without
+      // them Dina's first vote is 4-2 and Lewis goes home; with them it is
+      // 4-4, and the deadlock ended with Linnea leaving instead. Lewis's
+      // separate "Blood Ring Idol" bluff -- his silver ring, pitched to
+      // Sharonda as linking their fates for two Tribals -- was fake and
+      // Cristian exposed it, so no idol event is logged. ---
+      { player: "kilby", type: "use_advantage_successfully" },
+      { player: "lewis", type: "use_advantage_successfully" },
+
+      // --- Voted Out (Alexis 3-1 at Savu; Linnea 4-4/4-4/4-0 at Dina).
+      // No Shot in the Dark plays at either Tribal. ---
+      { player: "alexis", type: "voted_out" },
+      { player: "linnea", type: "voted_out" },
+
+      // --- Survive Episode (all 14 remaining players) ---
+      { player: "brady", type: "survive_episode" },
+      { player: "carter", type: "survive_episode" },
+      { player: "cristian", type: "survive_episode" },
+      { player: "devin", type: "survive_episode" },
+      { player: "eric", type: "survive_episode" },
+      { player: "jelly", type: "survive_episode" },
+      { player: "kilby", type: "survive_episode" },
+      { player: "kristin", type: "survive_episode" },
+      { player: "lewis", type: "survive_episode" },
+      { player: "maggie", type: "survive_episode" },
+      { player: "mike", type: "survive_episode" },
+      { player: "ori", type: "survive_episode" },
+      { player: "sharonda", type: "survive_episode" },
+      { player: "thienan", type: "survive_episode" },
+    ],
+  },
 ];
