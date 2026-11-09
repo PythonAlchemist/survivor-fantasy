@@ -477,4 +477,186 @@ export const s51Episodes: Episode[] = [
       { player: "thienan", type: "survive_episode" },
     ],
   },
+  {
+    episode: 6,
+    title: "I Love Crying",
+    airDate: "2026-10-28",
+    events: [
+      // --- Summit (Day 11): one player from each tribe -- Sharonda (Dina,
+      // Cristian rigged the draw), Ori (Savu) and Kristin (Toka, voted over
+      // Mike). Two take home a feast of ribs and corn; the third stays on
+      // Exile and earns a "tethered" idol playable only on the two
+      // food-takers, which becomes a full idol (usable on anyone, herself
+      // included) if both Sharonda and Ori go home. Sharonda talked
+      // Kristin into staying. The feast has no matching category (not a
+      // challenge win, same as Maggie's ep-5 pastries), so Ori and
+      // Sharonda score nothing for it. Kristin was back on Toka for the
+      // challenge, so she is in Toka's tribal_win. ---
+
+      // --- Immunity Challenge "UnBraidy Bunch" (immunity only, no
+      // reward): two tribes safe again, as in episode 4. Toka 1st, Dina
+      // 2nd, Savu to Tribal for the fourth straight time. ---
+
+      // --- Tribal Challenge Win (1st) — Toka ---
+      { player: "brady", type: "tribal_win" },
+      { player: "carter", type: "tribal_win" },
+      { player: "kristin", type: "tribal_win" },
+      { player: "maggie", type: "tribal_win" },
+      { player: "mike", type: "tribal_win" },
+      { player: "thienan", type: "tribal_win" },
+
+      // --- Tribal Challenge (2nd) — Dina ---
+      { player: "cristian", type: "tribal_second" },
+      { player: "eric", type: "tribal_second" },
+      { player: "kilby", type: "tribal_second" },
+      { player: "lewis", type: "tribal_second" },
+      { player: "sharonda", type: "tribal_second" },
+
+      // --- Idols & Advantages: Kristin's tethered idol scored as
+      // find_idol (league ruling: it is a real immunity idol, just with
+      // play restrictions). ---
+      { player: "kristin", type: "find_idol" },
+
+      // --- Survive Tribal Council (Savu, 3 attendees minus Ori) ---
+      { player: "devin", type: "survive_tribal" },
+      { player: "jelly", type: "survive_tribal" },
+
+      // --- Correct Vote (2-0: Devin and Jelly vote Ori. Ori pitched each
+      // of them on blindsiding the other, but Jelly sat on her ep-2 idol
+      // and Devin stayed put) ---
+      { player: "devin", type: "correct_vote" },
+      { player: "jelly", type: "correct_vote" },
+
+      // --- Zero Votes Received at Tribal (Ori forfeited his vote to play
+      // Shot in the Dark, so nobody voted against Devin or Jelly) ---
+      { player: "devin", type: "zero_votes_received" },
+      { player: "jelly", type: "zero_votes_received" },
+
+      // --- Voted Out (Ori, 2-0). His Shot in the Dark read "Not Safe";
+      // no category exists for a SitD play, so it is not scored. ---
+      { player: "ori", type: "voted_out" },
+
+      // --- Survive Episode (all 13 remaining players) ---
+      { player: "brady", type: "survive_episode" },
+      { player: "carter", type: "survive_episode" },
+      { player: "cristian", type: "survive_episode" },
+      { player: "devin", type: "survive_episode" },
+      { player: "eric", type: "survive_episode" },
+      { player: "jelly", type: "survive_episode" },
+      { player: "kilby", type: "survive_episode" },
+      { player: "kristin", type: "survive_episode" },
+      { player: "lewis", type: "survive_episode" },
+      { player: "maggie", type: "survive_episode" },
+      { player: "mike", type: "survive_episode" },
+      { player: "sharonda", type: "survive_episode" },
+      { player: "thienan", type: "survive_episode" },
+    ],
+  },
+  {
+    episode: 7,
+    title: "The Girl at the Prom",
+    airDate: "2026-11-04",
+    events: [
+      // --- Merge (Day 13): the final 13 become Tovuto. First episode
+      // with individual challenges, so no tribal_win/tribal_second. ---
+
+      // --- Individual Immunity: "Ten Foot Pole" balance challenge, Mike
+      // outlasting Lewis at the end ---
+      { player: "mike", type: "individual_immunity" },
+
+      // --- Individual Reward: "Grub Hub" -- eat two grubs, first ten to
+      // finish win the merge feast. Multiple winners, so all ten score.
+      // Kristin and Cristian forfeited; Sharonda finished 11th. ---
+      { player: "brady", type: "individual_reward" },
+      { player: "carter", type: "individual_reward" },
+      { player: "devin", type: "individual_reward" },
+      { player: "eric", type: "individual_reward" },
+      { player: "jelly", type: "individual_reward" },
+      { player: "kilby", type: "individual_reward" },
+      { player: "lewis", type: "individual_reward" },
+      { player: "maggie", type: "individual_reward" },
+      { player: "mike", type: "individual_reward" },
+      { player: "thienan", type: "individual_reward" },
+
+      // --- Survive Tribal Council (all 13 attended, minus Brady; Mike
+      // counts -- he attended and survived, immune or not) ---
+      { player: "carter", type: "survive_tribal" },
+      { player: "cristian", type: "survive_tribal" },
+      { player: "devin", type: "survive_tribal" },
+      { player: "eric", type: "survive_tribal" },
+      { player: "jelly", type: "survive_tribal" },
+      { player: "kilby", type: "survive_tribal" },
+      { player: "kristin", type: "survive_tribal" },
+      { player: "lewis", type: "survive_tribal" },
+      { player: "maggie", type: "survive_tribal" },
+      { player: "mike", type: "survive_tribal" },
+      { player: "sharonda", type: "survive_tribal" },
+      { player: "thienan", type: "survive_tribal" },
+
+      // --- Correct Vote (9-4: Cristian, Devin, Eric, Jelly, Kilby,
+      // Kristin, Maggie, Mike and Sharonda on Brady; Brady, Carter, Lewis
+      // and Thien An on Eric. Mike tipped Kristin that the Toka vote for
+      // Eric was a cover, and Kilby and Maggie broke from Brady's side) ---
+      { player: "cristian", type: "correct_vote" },
+      { player: "devin", type: "correct_vote" },
+      { player: "eric", type: "correct_vote" },
+      { player: "jelly", type: "correct_vote" },
+      { player: "kilby", type: "correct_vote" },
+      { player: "kristin", type: "correct_vote" },
+      { player: "maggie", type: "correct_vote" },
+      { player: "mike", type: "correct_vote" },
+      { player: "sharonda", type: "correct_vote" },
+
+      // --- Zero Votes Received at Tribal (everyone but Brady and Eric,
+      // who took 4 votes and survived) ---
+      { player: "carter", type: "zero_votes_received" },
+      { player: "cristian", type: "zero_votes_received" },
+      { player: "devin", type: "zero_votes_received" },
+      { player: "jelly", type: "zero_votes_received" },
+      { player: "kilby", type: "zero_votes_received" },
+      { player: "kristin", type: "zero_votes_received" },
+      { player: "lewis", type: "zero_votes_received" },
+      { player: "maggie", type: "zero_votes_received" },
+      { player: "mike", type: "zero_votes_received" },
+      { player: "sharonda", type: "zero_votes_received" },
+      { player: "thienan", type: "zero_votes_received" },
+
+      // --- Idols & Advantages: none found or played. Kristin handed her
+      // tethered idol to Sharonda for safekeeping -- a transfer, not a
+      // find, so not scored (same as Rob's ep-3 handoff). Devin's ep-3
+      // extra vote went unplayed. ---
+
+      // --- Voted Out (Brady, 9-4; first juror) ---
+      { player: "brady", type: "voted_out" },
+
+      // --- Survive Episode (all 12 remaining players) ---
+      { player: "carter", type: "survive_episode" },
+      { player: "cristian", type: "survive_episode" },
+      { player: "devin", type: "survive_episode" },
+      { player: "eric", type: "survive_episode" },
+      { player: "jelly", type: "survive_episode" },
+      { player: "kilby", type: "survive_episode" },
+      { player: "kristin", type: "survive_episode" },
+      { player: "lewis", type: "survive_episode" },
+      { player: "maggie", type: "survive_episode" },
+      { player: "mike", type: "survive_episode" },
+      { player: "sharonda", type: "survive_episode" },
+      { player: "thienan", type: "survive_episode" },
+
+      // --- Make Merge (all 13 who reached Tovuto, Brady included) ---
+      { player: "brady", type: "make_merge" },
+      { player: "carter", type: "make_merge" },
+      { player: "cristian", type: "make_merge" },
+      { player: "devin", type: "make_merge" },
+      { player: "eric", type: "make_merge" },
+      { player: "jelly", type: "make_merge" },
+      { player: "kilby", type: "make_merge" },
+      { player: "kristin", type: "make_merge" },
+      { player: "lewis", type: "make_merge" },
+      { player: "maggie", type: "make_merge" },
+      { player: "mike", type: "make_merge" },
+      { player: "sharonda", type: "make_merge" },
+      { player: "thienan", type: "make_merge" },
+    ],
+  },
 ];
