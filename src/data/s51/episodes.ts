@@ -659,4 +659,92 @@ export const s51Episodes: Episode[] = [
       { player: "thienan", type: "make_merge" },
     ],
   },
+  {
+    episode: 8,
+    title: "Load the Ark, Two by Two",
+    airDate: "2026-11-11",
+    events: [
+      // --- "Double Duos" twist (Day 15): the 12 remaining players paired
+      // themselves off, competed as pairs, and voted out a PAIR at Tribal,
+      // sending two people home at once. Pairs: Carter & Cristian, Devin &
+      // Jelly, Eric & Thien An, Kilby & Kristin, Lewis & Sharonda, Maggie
+      // & Mike. ---
+
+      // --- Combined Reward/Immunity Challenge "Couples Therapy": one
+      // challenge, not two (same ruling as episodes 3-5), so the Yellow
+      // pair scores individual_immunity only and no separate
+      // individual_reward for the spaghetti. Lewis and Sharonda won; they
+      // shared the reward with Jelly and Kristin (invited guests, not
+      // winners, so no events) and sent Cristian on the journey. Carter
+      // and Cristian won the first stage and took a six-block discount
+      // into stage two -- an in-challenge edge rather than a found
+      // advantage, and they lost anyway, so nothing is logged for it. ---
+      { player: "lewis", type: "individual_immunity" },
+      { player: "sharonda", type: "individual_immunity" },
+
+      // --- Idols & Advantages: Cristian wagered his vote on the journey
+      // and won an Extra Vote, then handed it to Eric with instructions to
+      // pile on Devin and Jelly. Eric read the room as a comfortable
+      // majority and never cast it, so there is a find_advantage but no
+      // use_advantage_successfully. ---
+      { player: "cristian", type: "find_advantage" },
+
+      // --- Jelly played her episode-2 hidden immunity idol on herself and
+      // Devin, wiping out all eight votes against the Blue pair -- the
+      // eight that would otherwise have sent them both home. ---
+      { player: "jelly", type: "play_idol_correctly" },
+
+      // --- Survive Tribal Council (all 12 attend, minus Kilby and
+      // Kristin) ---
+      { player: "carter", type: "survive_tribal" },
+      { player: "cristian", type: "survive_tribal" },
+      { player: "devin", type: "survive_tribal" },
+      { player: "eric", type: "survive_tribal" },
+      { player: "jelly", type: "survive_tribal" },
+      { player: "lewis", type: "survive_tribal" },
+      { player: "maggie", type: "survive_tribal" },
+      { player: "mike", type: "survive_tribal" },
+      { player: "sharonda", type: "survive_tribal" },
+      { player: "thienan", type: "survive_tribal" },
+
+      // --- Correct Vote: Devin alone, 1-0-0. Eight players (Carter, Eric,
+      // Kilby, Lewis, Maggie, Mike, Sharonda, Thien An) wrote Devin &
+      // Jelly and were erased by the idol; Jelly wrote Carter & Cristian
+      // and was erased by Cristian's successful Shot in the Dark; Devin
+      // wrote Kilby & Kristin, the only ballot left standing, and it
+      // eliminated two people on its own. One correct_vote for the pair
+      // ballot, not two -- a player casts one vote per Tribal, same as the
+      // one-per-Tribal treatment of the two Tribals in episode 5. ---
+      { player: "devin", type: "correct_vote" },
+
+      // --- Zero Votes Received at Tribal: votes received disqualify a
+      // player whether or not they were later negated (the episode-5 Lewis
+      // precedent), so Devin and Jelly (8 each), Carter and Cristian (1
+      // each) and the departing Kilby and Kristin (1 each) are all out. ---
+      { player: "eric", type: "zero_votes_received" },
+      { player: "lewis", type: "zero_votes_received" },
+      { player: "maggie", type: "zero_votes_received" },
+      { player: "mike", type: "zero_votes_received" },
+      { player: "sharonda", type: "zero_votes_received" },
+      { player: "thienan", type: "zero_votes_received" },
+
+      // --- Voted Out (Kilby and Kristin, 1-0-0, as the first two jury
+      // members). Kristin played her Shot in the Dark and drew "Not Safe";
+      // Cristian played his and drew "Safe". ---
+      { player: "kilby", type: "voted_out" },
+      { player: "kristin", type: "voted_out" },
+
+      // --- Survive Episode (all 10 remaining players) ---
+      { player: "carter", type: "survive_episode" },
+      { player: "cristian", type: "survive_episode" },
+      { player: "devin", type: "survive_episode" },
+      { player: "eric", type: "survive_episode" },
+      { player: "jelly", type: "survive_episode" },
+      { player: "lewis", type: "survive_episode" },
+      { player: "maggie", type: "survive_episode" },
+      { player: "mike", type: "survive_episode" },
+      { player: "sharonda", type: "survive_episode" },
+      { player: "thienan", type: "survive_episode" },
+    ],
+  },
 ];
