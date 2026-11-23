@@ -747,4 +747,88 @@ export const s51Episodes: Episode[] = [
       { player: "thienan", type: "survive_episode" },
     ],
   },
+  {
+    episode: 9,
+    title: "Wilder Than a Cat in a Bathtub",
+    airDate: "2026-11-18",
+    events: [
+      // --- Reward Challenge "Heroes End": a SEPARATE challenge from
+      // immunity, same as episode 7, so both score. Ten players split into
+      // two teams of five by schoolyard pick; Mike's Purple team beat
+      // Sharonda's team to the slingshot targets and took a helicopter
+      // tour of Fiji plus a fried chicken picnic. Lewis scores the reward
+      // even though he did not survive the episode. ---
+      { player: "devin", type: "individual_reward" },
+      { player: "eric", type: "individual_reward" },
+      { player: "lewis", type: "individual_reward" },
+      { player: "mike", type: "individual_reward" },
+      { player: "thienan", type: "individual_reward" },
+
+      // --- Immunity Challenge "Invertigo": Carter outlasted Lewis
+      // head-to-head on the suspended ramp after more than half an hour
+      // for his first individual immunity. ---
+      { player: "carter", type: "individual_immunity" },
+
+      // --- Idols & Advantages: nothing scored. Maggie worked out that
+      // Jelly's episode-8 idol came from the old Toka beach, so a new one
+      // should be planted there, and the tribe tore the island apart. No
+      // real idol was found. Devin built a FAKE idol out of the paper from
+      // Jelly's spent idol and steered Maggie straight past the plant; she
+      // refused to pick it up. Fake idols do not score, matching the
+      // episode-5 precedent for Lewis's "Blood Ring Idol" bluff. ---
+
+      // --- Tribal Council: no vote was held. Jeff offered the
+      // Million-Dollar Coin Flip -- call the coin right and you double the
+      // prize pot, take safety and receive an idol; call it wrong and you
+      // are out on the spot. Lewis, Cristian, Devin and Eric all
+      // volunteered, Lewis took it, called fire, and the coin came up
+      // water. He was eliminated without a single ballot being cast and
+      // the extra million rolls over to Survivor 52. ---
+
+      // --- Survive Tribal Council (the 9 who attended and stayed).
+      // League ruling, confirmed with the commissioner before scoring:
+      // survive_tribal is credited for a no-vote Tribal, on the
+      // attendees-minus-the-boot pattern used since episode 1, even though
+      // nobody was ever at risk of a vote. ---
+      { player: "carter", type: "survive_tribal" },
+      { player: "cristian", type: "survive_tribal" },
+      { player: "devin", type: "survive_tribal" },
+      { player: "eric", type: "survive_tribal" },
+      { player: "jelly", type: "survive_tribal" },
+      { player: "maggie", type: "survive_tribal" },
+      { player: "mike", type: "survive_tribal" },
+      { player: "sharonda", type: "survive_tribal" },
+      { player: "thienan", type: "survive_tribal" },
+
+      // --- No Correct Vote this episode: nobody voted, so nobody can have
+      // voted correctly. ---
+
+      // --- No Zero Votes Received either. League ruling, also confirmed
+      // with the commissioner: a Tribal where zero ballots exist does not
+      // hand every survivor the point, because the category tracks
+      // avoiding votes aimed at you rather than the absence of voting.
+      // This is the one place episode 9 departs from reading the rule
+      // literally. ---
+
+      // --- Eliminated (Lewis, no vote). Third league ruling: the
+      // coin-flip elimination is scored as voted_out for the standard -3,
+      // even though the wiki lists him as "Eliminated" rather than 11th
+      // Voted Out and no vote occurred. Nothing in the schema covers a
+      // wagered elimination -- medevac and quit both misdescribe it -- and
+      // leaving it unscored would mean a roster loses a player for free.
+      // He is the 3rd jury member. ---
+      { player: "lewis", type: "voted_out" },
+
+      // --- Survive Episode (all 9 remaining players) ---
+      { player: "carter", type: "survive_episode" },
+      { player: "cristian", type: "survive_episode" },
+      { player: "devin", type: "survive_episode" },
+      { player: "eric", type: "survive_episode" },
+      { player: "jelly", type: "survive_episode" },
+      { player: "maggie", type: "survive_episode" },
+      { player: "mike", type: "survive_episode" },
+      { player: "sharonda", type: "survive_episode" },
+      { player: "thienan", type: "survive_episode" },
+    ],
+  },
 ];
